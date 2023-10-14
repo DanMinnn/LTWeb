@@ -71,7 +71,11 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(dsSan);
         }
 
-
+        public ActionResult DanhSachLichDat()
+        {
+            List<lichdat> dsLichDat = db.lichdats.ToList();
+            return View(dsLichDat);
+        }
 
     }
 }

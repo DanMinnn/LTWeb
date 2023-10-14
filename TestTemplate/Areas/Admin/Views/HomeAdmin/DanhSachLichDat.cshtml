@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TestTemplate.Models.lichdat>
+
+@{
+    ViewBag.Title = "DanhSachLichDat";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    TestTemplate.Models.QuanLyDatSanEntities db = new TestTemplate.Models.QuanLyDatSanEntities();
+}
+
+<h2>Danh sách lịch đặt</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã đặt sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Khách hàng</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Cơ sở</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian bắt đầu</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian kết thúc</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Giá tiền</label>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr style="padding-left: 10px">
+    <td>
+        @Html.DisplayFor(modelItem => item.MaDatSan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KhachHang.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.san.sosan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.san.macs)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TGianBatDau)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TGianKetThuc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.san.giatien)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaDatSan }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaDatSan }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaDatSan })
+    </td>
+</tr>
+}
+
+</table>

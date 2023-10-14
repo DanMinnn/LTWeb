@@ -5534,6 +5534,7 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachSan.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\CapNhat.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachLichDat.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
