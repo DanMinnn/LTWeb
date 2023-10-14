@@ -65,7 +65,7 @@
           <Property Name="giatien" Type="nvarchar" MaxLength="50" />
           <Property Name="macs" Type="varchar" MaxLength="10" />
         </EntityType>
-        <Association Name="FK__coso__mals__3A81B327">
+        <Association Name="FK__coso__mals__4CA06362">
           <End Role="loaisan" Type="Self.loaisan" Multiplicity="0..1" />
           <End Role="coso" Type="Self.coso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -77,7 +77,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__lichdat__MaKhach__45F365D3">
+        <Association Name="FK__lichdat__MaKhach__5812160E">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
           <End Role="lichdat" Type="Self.lichdat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -89,7 +89,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__lichdat__masan__44FF419A">
+        <Association Name="FK__lichdat__masan__571DF1D5">
           <End Role="san" Type="Self.san" Multiplicity="0..1" />
           <End Role="lichdat" Type="Self.lichdat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NHANVIEN__macs__4222D4EF">
+        <Association Name="FK__NHANVIEN__macs__5441852A">
           <End Role="coso" Type="Self.coso" Multiplicity="0..1" />
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -113,7 +113,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__san__macs__3D5E1FD2">
+        <Association Name="FK__san__macs__4F7CD00D">
           <End Role="coso" Type="Self.coso" Multiplicity="0..1" />
           <End Role="san" Type="Self.san" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,23 +132,23 @@
           <EntitySet Name="loaisan" EntityType="Self.loaisan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="san" EntityType="Self.san" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__coso__mals__3A81B327" Association="Self.FK__coso__mals__3A81B327">
+          <AssociationSet Name="FK__coso__mals__4CA06362" Association="Self.FK__coso__mals__4CA06362">
             <End Role="loaisan" EntitySet="loaisan" />
             <End Role="coso" EntitySet="coso" />
           </AssociationSet>
-          <AssociationSet Name="FK__lichdat__MaKhach__45F365D3" Association="Self.FK__lichdat__MaKhach__45F365D3">
+          <AssociationSet Name="FK__lichdat__MaKhach__5812160E" Association="Self.FK__lichdat__MaKhach__5812160E">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="lichdat" EntitySet="lichdat" />
           </AssociationSet>
-          <AssociationSet Name="FK__lichdat__masan__44FF419A" Association="Self.FK__lichdat__masan__44FF419A">
+          <AssociationSet Name="FK__lichdat__masan__571DF1D5" Association="Self.FK__lichdat__masan__571DF1D5">
             <End Role="san" EntitySet="san" />
             <End Role="lichdat" EntitySet="lichdat" />
           </AssociationSet>
-          <AssociationSet Name="FK__NHANVIEN__macs__4222D4EF" Association="Self.FK__NHANVIEN__macs__4222D4EF">
+          <AssociationSet Name="FK__NHANVIEN__macs__5441852A" Association="Self.FK__NHANVIEN__macs__5441852A">
             <End Role="coso" EntitySet="coso" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
-          <AssociationSet Name="FK__san__macs__3D5E1FD2" Association="Self.FK__san__macs__3D5E1FD2">
+          <AssociationSet Name="FK__san__macs__4F7CD00D" Association="Self.FK__san__macs__4F7CD00D">
             <End Role="coso" EntitySet="coso" />
             <End Role="san" EntitySet="san" />
           </AssociationSet>

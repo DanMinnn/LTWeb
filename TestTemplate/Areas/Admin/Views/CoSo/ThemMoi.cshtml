@@ -64,12 +64,12 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-md-10 " style="margin-top: 10px">Mã loại sân</label>
+        <label class="control-label col-md-10 " style="margin-top: 10px">Tên loại sân</label>
         <div class="col-md-10">
             <select name="MaLs" class="form-control">
                 @foreach(var loai in db.loaisans.ToList())
                 {
-                    <option value="@loai.tenls">@loai.mals</option>
+                    <option value="@loai.mals">@loai.tenls</option>
                 }
                 @*<option value="BongDa">f</option>
                 <option value="BongRo">br</option>
