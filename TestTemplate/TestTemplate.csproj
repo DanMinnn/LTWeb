@@ -150,6 +150,7 @@
     <Compile Include="Models\CTHD.cs">
       <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DangKy.cs" />
     <Compile Include="Models\DanhMucSan.cs">
       <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
