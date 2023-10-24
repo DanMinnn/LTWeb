@@ -41,32 +41,9 @@
         </div>
         <!-- Spinner End -->
         <!-- Navbar Start -->
-        <div class="container-fluid nav-bar bg-transparent">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="~/" class="navbar-brand d-flex align-items-center text-center">
-                    <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="~/Content/img/sport.png" alt="Icon" style="width: 30px; height: 30px;">
-                    </div>
-                    <h1 class="m-0 text-primary">Sport</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="~/" class="nav-item nav-link @Html.Raw(ViewBag.active == 1 ? "active":"")">Trang chủ</a>
-                        <a href="~/Football" class="nav-item nav-link @Html.Raw(ViewBag.active == 2 ? "active":"")">Bóng đá</a>
-                        <a href="~/Tennis" class="nav-item nav-link @Html.Raw(ViewBag.active == 3 ? "active":"")">Tennis</a>
-                        <a href="~/Basketball" class="nav-item nav-link @Html.Raw(ViewBag.active == 4 ? "active":"")">Bóng rổ</a>
-                        <a href="~/Badminton" class="nav-item nav-link @Html.Raw(ViewBag.active == 5 ? "active":"")">Cầu lông</a>
-                    </div>
-                    @*@Html.ActionLink("Đăng nhập", "DangNhap", "HomeAdmin", "Admin", null)*@
-                    <a href="~/DangNhap" class="btn btn-primary px-3 d-none d-lg-flex">Đăng nhập</a>
-                    @*<button type="submit" class="btn btn-primary px-3 d-none d-lg-flex">Đăng nhập</button>*@
-
-                </div>
-            </nav>
-        </div>
+        @{ 
+            Html.RenderPartial("_HeaderNavBar");
+        }
         <!-- Navbar End -->
         @RenderSection("Header", false)
         

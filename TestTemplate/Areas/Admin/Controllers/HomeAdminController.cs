@@ -28,7 +28,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         public ActionResult DangNhap(string user, string password)
         {
             //Check db
-                
+               
             //Check code
             if(user.ToLower() == "admin" && password == "1234")
             {

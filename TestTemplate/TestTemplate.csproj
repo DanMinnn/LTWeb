@@ -5588,7 +5588,6 @@
     <Content Include="Views\Tennis\Index.cshtml" />
     <Content Include="Views\Basketball\Index.cshtml" />
     <Content Include="Views\Badminton\Index.cshtml" />
-    <Content Include="Views\DangNhap\Index.cshtml" />
     <Content Include="Views\DatSan\Index.cshtml" />
     <Content Include="Views\Shared\LayoutDatSan.cshtml" />
     <Content Include="Views\CoSo\CoSoBongDaPartial.cshtml" />
@@ -5600,6 +5599,8 @@
     <Content Include="Views\DatSan\XacNhanDatSan.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
     <Content Include="Views\DangKy\DangKy.cshtml" />
+    <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    @*<link href="~/Areas/Admin/css_js_login/style.css" rel="stylesheet" />*@
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="User name / Email" name="user">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Password" value="" name="password">
+                    </div>
+                    <div class="login__field">
+                        <p class="text-danger" style="color: red">
+                            @TempData["error"]
+                        </p>
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">Log in now</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                </form>
+
+                <div class="go_back">
+
+                    <a href="@Url.RouteUrl("Home")" class="button go-back__submit">
+                        <span class="button__text">Go home page</span>
+
+                        <i class="button__icon fas fa-chevron-left"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+
+</body>
+</html>
+
+
+
