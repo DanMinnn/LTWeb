@@ -40,7 +40,7 @@ namespace TestTemplate.Controllers
             QuanLyDatSanEntities db = new QuanLyDatSanEntities();
 
 
-            foreach (var lich in db.lichdats.Where(c => c.masan == maSanDaChon))
+            foreach (var lich in db.LichDats.Where(c => c.MaSan == maSanDaChon))
             {
                 if (KiemTraTrungLich(lich, model.gioBatDau, model.gioKetThuc))
                 {
@@ -73,17 +73,17 @@ namespace TestTemplate.Controllers
             QuanLyDatSanEntities db = new QuanLyDatSanEntities();
 
             // Tiến hành lưu thông tin vào cơ sở dữ liệu ở đây, tương tự như bạn đã làm trong action "danhsach"
-            bool ktr_kh = db.KhachHangs.Any(kh => kh.SoDienThoai == model.soDienThoai && kh.HoTen == model.hoTen && kh.Email == model.email);
+            bool ktr_kh = db.user_KhachHang.Any(kh => kh.SoDienThoai == model.soDienThoai && kh.HoTen == model.hoTen && kh.Email == model.email);
             string maDatSan = $"{model.ma_San}_{madatsanCounter:D3}";
             madatsanCounter++;
-            KhachHang kh_ms = null;
+            user_KhachHang kh_ms = null;
             if (ktr_kh)
             {
-                kh_ms = db.KhachHangs.SingleOrDefault(kh => kh.SoDienThoai == model.soDienThoai && kh.Email == model.email && kh.HoTen == model.hoTen);
+                kh_ms = db.user_KhachHang.SingleOrDefault(kh => kh.SoDienThoai == model.soDienThoai && kh.Email == model.email && kh.HoTen == model.hoTen);
             }
             else
             {
-                int soLuongKhachHangCungSDT = db.KhachHangs.Count(kh => kh.SoDienThoai == model.soDienThoai);
+                int soLuongKhachHangCungSDT = db.user_KhachHang.Count(kh => kh.SoDienThoai == model.soDienThoai);
 
                 if (soLuongKhachHangCungSDT >= 6)
                 {
@@ -91,35 +91,35 @@ namespace TestTemplate.Controllers
                     return View(model);
                 }
 
-                var lastCustomer = db.KhachHangs.OrderByDescending(kh => kh.MaKhachHang).FirstOrDefault();
+                var lastCustomer = db.user_KhachHang.OrderByDescending(kh => kh.MaKH).FirstOrDefault();
                 if (lastCustomer != null)
                 {
                     // Nếu có khách hàng trong cơ sở dữ liệu, lấy giá trị của MaKhachHang lớn nhất và tăng lên 1.
-                    maKHCounter = int.Parse(lastCustomer.MaKhachHang) + 1;
+                    maKHCounter = int.Parse(lastCustomer.MaKH) + 1;
                 }
                 // Tạo mã khách hàng dưới dạng "001", "002", ...
                 string makh = $"{maKHCounter:D3}";
                 maKHCounter++;
-                kh_ms = new KhachHang
+                kh_ms = new user_KhachHang
                 {
-                    MaKhachHang = makh,
+                    MaKH = makh,
                     HoTen = model.hoTen,
                     SoDienThoai = model.soDienThoai,
                     Email = model.email
                 };
-                db.KhachHangs.Add(kh_ms);
+                db.user_KhachHang.Add(kh_ms);
             }
 
-            lichdat ld_ms = new lichdat
+            LichDat ld_ms = new LichDat
             {
-                MaDatSan = maDatSan,
-                MaKhachHang = kh_ms.MaKhachHang,
-                masan = model.ma_San,
-                TGianBatDau = model.gioBatDau,
-                TGianKetThuc = model.gioKetThuc
+                MaLichDat = maDatSan,
+                MaKhachHang = kh_ms.MaKH,
+                MaSan = model.ma_San,
+                ThoiGianBatDau = model.gioBatDau,
+                ThoiGianKetThuc = model.gioKetThuc
             };
 
-            db.lichdats.Add(ld_ms);
+            db.LichDats.Add(ld_ms);
 
             // Lưu thay đổi vào cơ sở dữ liệu
             db.SaveChanges();
@@ -133,12 +133,12 @@ namespace TestTemplate.Controllers
 
 
         // Phương thức kiểm tra trùng lịch
-        private bool KiemTraTrungLich(lichdat lich, DateTime gioBatDau, DateTime gioKetThuc)
+        private bool KiemTraTrungLich(LichDat lich, DateTime gioBatDau, DateTime gioKetThuc)
         {
             // Kiểm tra xem thời gian bắt đầu và kết thúc của lịch đã nhập có trùng với lịch trong cơ sở dữ liệu không
-            if ((gioBatDau >= lich.TGianBatDau && gioBatDau < lich.TGianKetThuc) ||
-                (gioKetThuc > lich.TGianBatDau && gioKetThuc <= lich.TGianKetThuc) ||
-                (gioBatDau <= lich.TGianBatDau && gioKetThuc >= lich.TGianKetThuc))
+            if ((gioBatDau >= lich.ThoiGianBatDau && gioBatDau < lich.ThoiGianKetThuc) ||
+                (gioKetThuc > lich.ThoiGianBatDau && gioKetThuc <= lich.ThoiGianKetThuc) ||
+                (gioBatDau <= lich.ThoiGianBatDau && gioKetThuc >= lich.ThoiGianKetThuc))
             {
                 return true; // Có trùng lịch
             }
@@ -171,11 +171,11 @@ namespace TestTemplate.Controllers
                 DateTime now = DateTime.Now;
 
                 // Lấy danh sách các lịch đặt đã qua thời gian hiện tại
-                var lichDatCanXoa = context.lichdats.Where(ld => ld.TGianKetThuc < now).ToList();
+                var lichDatCanXoa = context.LichDats.Where(ld => ld.ThoiGianKetThuc < now).ToList();
 
                 foreach (var lichDat in lichDatCanXoa)
                 {
-                    context.lichdats.Remove(lichDat); // Xoá lịch đặt đã qua thời gian
+                    context.LichDats.Remove(lichDat); // Xoá lịch đặt đã qua thời gian
                 }
 
                 context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu

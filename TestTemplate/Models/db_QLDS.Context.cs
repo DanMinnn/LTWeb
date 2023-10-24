@@ -25,11 +25,19 @@ namespace TestTemplate.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<coso> cosoes { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<lichdat> lichdats { get; set; }
-        public virtual DbSet<loaisan> loaisans { get; set; }
-        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
-        public virtual DbSet<san> sans { get; set; }
+        public virtual DbSet<CoSo> CoSoes { get; set; }
+        public virtual DbSet<CTHD> CTHDs { get; set; }
+        public virtual DbSet<DanhMucSan> DanhMucSans { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<LichDat> LichDats { get; set; }
+        public virtual DbSet<LoaiCoSo> LoaiCoSoes { get; set; }
+        public virtual DbSet<NhanVien> NhanViens { get; set; }
+        public virtual DbSet<PhanCong> PhanCongs { get; set; }
+        public virtual DbSet<PhanQuyen> PhanQuyens { get; set; }
+        public virtual DbSet<QuanTriVien> QuanTriViens { get; set; }
+        public virtual DbSet<Quyen> Quyens { get; set; }
+        public virtual DbSet<San> Sans { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<user_KhachHang> user_KhachHang { get; set; }
     }
 }

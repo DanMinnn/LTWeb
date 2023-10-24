@@ -134,6 +134,7 @@
     <Compile Include="Controllers\BadmintonController.cs" />
     <Compile Include="Controllers\BasketballController.cs" />
     <Compile Include="Controllers\CoSoController.cs" />
+    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\DatSanController.cs" />
     <Compile Include="Controllers\FootballController.cs" />
@@ -143,44 +144,68 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\coso.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\CoSo.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTHD.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DanhMucSan.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DatSan.cs" />
-    <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lichdat.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\loaisan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\db_QLDS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>db_QLDS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\db_QLDS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
+    <Compile Include="Models\db_QLDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>db_QLDS.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\HoaDon.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\san.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\LichDat.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiCoSo.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhanVien.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhanCong.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhanQuyen.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanTriVien.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Quyen.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\San.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_KhachHang.cs">
+      <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\css_login\style.css" />
+    <Content Include="Areas\Admin\css_js_login\style.css" />
     <Content Include="Areas\ContentAdmin\css\style.css" />
     <Content Include="Areas\ContentAdmin\icons\cryptocoins\css\cryptocoins-colors.css" />
     <Content Include="Areas\ContentAdmin\icons\cryptocoins\css\cryptocoins.css" />
@@ -5158,18 +5183,19 @@
     <Content Include="Content\lib\wow\wow.js" />
     <Content Include="Content\lib\wow\wow.min.js" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\db_QLDS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>db_QLDS.edmx</DependentUpon>
+      <LastGenOutput>db_QLDS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\db_QLDS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>db_QLDS.edmx</DependentUpon>
+      <LastGenOutput>db_QLDS.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -5523,19 +5549,19 @@
     <Content Include="Areas\ContentAdmin\plugins\typeahedjs\dist\nba.json" />
     <Content Include="Areas\ContentAdmin\plugins\typeahedjs\dist\nfl.json" />
     <Content Include="Areas\ContentAdmin\plugins\typeahedjs\dist\nhl.json" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\CoSo\DanhSachCoSo.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachSan.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\CapNhat.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachLichDat.cshtml" />
+    <EntityDeploy Include="Models\db_QLDS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>db_QLDS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\db_QLDS.edmx.diagram">
+      <DependentUpon>db_QLDS.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5572,6 +5598,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\DatSan\XacNhanDatSan.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
+    <Content Include="Views\DangKy\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

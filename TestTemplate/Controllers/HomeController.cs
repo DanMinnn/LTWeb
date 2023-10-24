@@ -10,28 +10,29 @@ namespace TestTemplate.Controllers
     public class HomeController : Controller
     {
         QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        
         public ActionResult Index()
         {
 
             // Lần lượt tạo ViewBag để lấy list cơ sở từ sql
 
             //List bóng đá
-            var listCsBongDa = db.cosoes.Where(n => n.mals == "f");
+            var listCsBongDa = db.CoSoes.Where(n => n.MaLoaiCS == "bongDa");
             // Gán vào ViewBag
             ViewBag.CsBongDa = listCsBongDa;
 
             //List bóng rổ
-            var listCsBongRo = db.cosoes.Where(n => n.mals == "br");
+            var listCsBongRo = db.CoSoes.Where(n => n.MaLoaiCS == "bongRo");
             // Gán vào ViewBag
             ViewBag.CsBongRo = listCsBongRo;
 
             //List bóng cầu lông
-            var listCsCauLong = db.cosoes.Where(n => n.mals == "bmt");
+            var listCsCauLong = db.CoSoes.Where(n => n.MaLoaiCS == "cauLong");
             // Gán vào ViewBag
             ViewBag.CsCauLong = listCsCauLong;
 
             //List bóng tennis
-            var listCsTennis = db.cosoes.Where(n => n.mals == "tennis");
+            var listCsTennis = db.CoSoes.Where(n => n.MaLoaiCS == "quanVot");
             // Gán vào ViewBag
             ViewBag.CsTennis = listCsTennis;
 

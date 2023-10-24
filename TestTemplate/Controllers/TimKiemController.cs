@@ -14,8 +14,8 @@ namespace TestTemplate.Controllers
         public ActionResult KQTimKiem(string sTuKhoa)
         {
             // Tìm kiếm theo tên cơ sở
-            var lstCoSo = db.cosoes.Where(n => n.tencs.Contains(sTuKhoa));
-            return View(lstCoSo.OrderBy(n => n.tencs));
+            var lstCoSo = db.CoSoes.Where(n => n.TenCS.Contains(sTuKhoa));
+            return View(lstCoSo.OrderBy(n => n.TenCS));
         }
     }
 }

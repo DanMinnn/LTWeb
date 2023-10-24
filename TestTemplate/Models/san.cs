@@ -12,21 +12,21 @@ namespace TestTemplate.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class san
+    public partial class San
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public san()
+        public San()
         {
-            this.lichdats = new HashSet<lichdat>();
+            this.LichDats = new HashSet<LichDat>();
         }
     
-        public string masan { get; set; }
-        public Nullable<int> sosan { get; set; }
-        public string giatien { get; set; }
-        public string macs { get; set; }
+        public string MaSan { get; set; }
+        public Nullable<int> SoSan { get; set; }
+        public string GiaSan { get; set; }
+        public string MaDanhMuc { get; set; }
     
-        public virtual coso coso { get; set; }
+        public virtual DanhMucSan DanhMucSan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lichdat> lichdats { get; set; }
+        public virtual ICollection<LichDat> LichDats { get; set; }
     }
 }

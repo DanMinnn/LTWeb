@@ -12,27 +12,26 @@ namespace TestTemplate.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CoSo
+    public partial class QuanTriVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CoSo()
+        public QuanTriVien()
         {
-            this.DanhMucSans = new HashSet<DanhMucSan>();
-            this.PhanCongs = new HashSet<PhanCong>();
+            this.NhanViens = new HashSet<NhanVien>();
+            this.PhanQuyens = new HashSet<PhanQuyen>();
+            this.user_KhachHang = new HashSet<user_KhachHang>();
         }
     
-        public string MaCS { get; set; }
-        public string TenCS { get; set; }
-        public string HinhAnh { get; set; }
-        public string DiaChi { get; set; }
-        public string LinkMap { get; set; }
-        public string MucGia { get; set; }
-        public string MaLoaiCS { get; set; }
+        public string MaQTV { get; set; }
+        public string LoaiQTV { get; set; }
+        public string TenDangNhap { get; set; }
+        public string MatKhau { get; set; }
     
-        public virtual LoaiCoSo LoaiCoSo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhMucSan> DanhMucSans { get; set; }
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCongs { get; set; }
+        public virtual ICollection<PhanQuyen> PhanQuyens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<user_KhachHang> user_KhachHang { get; set; }
     }
 }

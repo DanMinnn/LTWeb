@@ -12,8 +12,15 @@ namespace TestTemplate.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NHANVIEN
+    public partial class NhanVien
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NhanVien()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+            this.PhanCongs = new HashSet<PhanCong>();
+        }
+    
         public string MaNV { get; set; }
         public string HoTen { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
@@ -21,8 +28,12 @@ namespace TestTemplate.Models
         public string SDT { get; set; }
         public string Email { get; set; }
         public string CCCD { get; set; }
-        public string macs { get; set; }
+        public string MaQTV { get; set; }
     
-        public virtual coso coso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual QuanTriVien QuanTriVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanCong> PhanCongs { get; set; }
     }
 }

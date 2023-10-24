@@ -1,5 +1,5 @@
 ﻿@using TestTemplate.Models
-@model IEnumerable<coso>
+@model IEnumerable<CoSo>
 
 @{
     ViewBag.title = "Trang chủ";
@@ -8,10 +8,10 @@
 }
 
 @{ 
-    IEnumerable<coso> listCsBongDa = (IEnumerable<coso>)ViewBag.CsBongDa;
-    IEnumerable<coso> listCsBongRo = ViewBag.CsBongRo as IEnumerable<coso>;
-    IEnumerable<coso> listCsCauLong = ViewBag.CsCauLong as IEnumerable<coso>;
-    IEnumerable<coso> listCsTennis = ViewBag.CsTennis as IEnumerable<coso>;
+    IEnumerable<CoSo> listCsBongDa = (IEnumerable<CoSo>)ViewBag.CsBongDa;
+    IEnumerable<CoSo> listCsBongRo = ViewBag.CsBongRo as IEnumerable<CoSo>;
+    IEnumerable<CoSo> listCsCauLong = ViewBag.CsCauLong as IEnumerable<CoSo>;
+    IEnumerable<CoSo> listCsTennis = ViewBag.CsTennis as IEnumerable<CoSo>;
 }
 
 @section Header{
@@ -170,9 +170,9 @@
                     <div class="position-relative">
                         <img class="img-fluid" src="~/Content/img/avt_Minh.jpg" alt="">
                         <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/profile.php?id=100011245034479"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href="https://www.facebook.com/profile.php?id=100011245034479" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/_.dnm_/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square mx-1" href="https://www.instagram.com/_.dnm_/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center p-4 mt-3">
@@ -185,8 +185,8 @@
                     <div class="position-relative">
                         <img class="img-fluid" src="~/Content/img/avt_Loi.jpg" alt="">
                         <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/loi225/"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/loi_22_5/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square mx-1" href="https://www.facebook.com/loi225/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href="https://www.instagram.com/loi_22_5/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center p-4 mt-3">

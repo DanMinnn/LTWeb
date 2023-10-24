@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TestTemplate.Models.NHANVIEN>
+﻿@model IEnumerable<TestTemplate.Models.NhanVien>
 @using System.Globalization;
 
 @{
@@ -61,9 +61,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CCCD)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.coso.tencs)
-            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.C.tencs)
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
                 @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |

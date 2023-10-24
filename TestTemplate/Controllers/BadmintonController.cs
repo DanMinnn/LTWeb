@@ -13,7 +13,7 @@ namespace TestTemplate.Controllers
         QuanLyDatSanEntities db = new QuanLyDatSanEntities();
         public ActionResult Index()
         {
-            var lstCsCauLong = db.cosoes.Where(n => n.mals == "bmt");
+            var lstCsCauLong = db.CoSoes.Where(n => n.MaLoaiCS == "cauLong");
             return View(lstCsCauLong);
         }
     }

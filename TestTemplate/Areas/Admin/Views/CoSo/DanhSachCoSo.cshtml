@@ -1,15 +1,31 @@
-﻿@model IEnumerable<TestTemplate.Models.coso>
+﻿@model IEnumerable<TestTemplate.Models.CoSo>
 
 @{
     ViewBag.Title = "DanhSachCoSo";
     Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    //Khởi tạo control WebGrid
+    //  WebGrid grid = new WebGrid(source: Model, rowsPerPage: 10);
 }
+
+    
 
 <h2>Danh sách cơ sở</h2>
 <p>
     <a href="@Url.Action("ThemMoi", "CoSo", new { area = "Admin" })">Thêm mới</a>
 </p>
 
+@* Thể hiện dữ liệu thông qua control WebGrid *@
+@*@grid.GetHtml(
+    tableStyle: "gridTable",
+    headerStyle: "gridHead",
+    footerStyle: "gridFooter",
+    rowStyle: "gridRow",
+    alternatingRowStyle: "gridAltRow",
+    columns: grid.Columns(
+        grid.Column(),
+        grid.Column(),
+        grid.Column(),) 
+    )*@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -34,23 +50,23 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.tencs)
+                @Html.DisplayFor(modelItem => item.TenCS)
             </td>
             <td>
-                <img class="img-responsive" src="@Url.Content("~/Content/img/" + item.hinhanh)" alt="" />
+                <img class="img-responsive" src="@Url.Content("~/Content/img/" + item.HinhAnh)" alt="" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.diachi)
+                @Html.DisplayFor(modelItem => item.DiaChi)
             </td>
             <td style="word-break: break-word;">
-                @Html.DisplayFor(modelItem => item.link)
+                @Html.DisplayFor(modelItem => item.LinkMap)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.loaisan.tenls)
+                @Html.DisplayFor(modelItem => item.LoaiCoSo.TenLoaiCS)
             </td>
             <td>
-                @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.macs }) |
-                @Html.ActionLink("Xóa", "Xoa", new { id = item.macs })
+                @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaCS }) |
+                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaCS })
             </td>
         </tr>
     }

@@ -1,18 +1,18 @@
 ﻿@using TestTemplate.Models
-@model IEnumerable<coso>
+@model IEnumerable<CoSo>
 
 @foreach (var item in Model.Take(1))
 {
     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
         <div class="property-item rounded overflow-hidden">
             <div class="position-relative overflow-hidden">
-                <a href="@Url.Action("Index", "DatSan", new { id_coso = item.macs, ten_coso = item.tencs })"><img class="img-fluid" src="@Url.Content("~/Content/img/" + item.hinhanh)" alt=""></a>
+                <a href="@Url.Action("Index", "DatSan", new { id_coso = item.MaCS, ten_coso = item.TenCS })"><img class="img-fluid" src="@Url.Content("~/Content/img/" + item.HinhAnh)" alt=""></a>
                 <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Tennis</div>
             </div>
             <div class="p-4 pb-0">
-                <h5 class="text-primary mb-3">@item.mucgia</h5>
-                <a class="d-block h5 mb-2" href="@item.link" target="_blank">@item.tencs</a>
-                <p><i class="fa fa-map-marker-alt text-primary me-2"></i>@item.diachi</p>
+                <h5 class="text-primary mb-3">@item.MucGia</h5>
+                <a class="d-block h5 mb-2" href="@item.LinkMap" target="_blank">@item.TenCS</a>
+                <p><i class="fa fa-map-marker-alt text-primary me-2"></i>@item.DiaChi</p>
             </div>
         </div>
     </div>

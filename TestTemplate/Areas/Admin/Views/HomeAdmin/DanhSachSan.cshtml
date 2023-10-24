@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TestTemplate.Models.san>
+﻿@model IEnumerable<TestTemplate.Models.San>
 
 @{
     ViewBag.Title = "DanhSachSan";
@@ -17,7 +17,7 @@
             <label class="control-label col-md-10 ">Giá tiền</label>
         </th>
         <th>
-            <label class="control-label col-md-10 ">Tên cơ sở</label>
+            <label class="control-label col-md-10 ">Danh mục sân</label>
         </th>
         <th></th>
     </tr>
@@ -25,18 +25,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.sosan)
+            @Html.DisplayFor(modelItem => item.SoSan)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.giatien)
+            @Html.DisplayFor(modelItem => item.GiaSan)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.coso.tencs)
+            @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.masan }) |
-            @Html.ActionLink("Details", "Details", new { id=item.masan }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.masan })
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaSan }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaSan }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaSan })
         </td>
     </tr>
 }

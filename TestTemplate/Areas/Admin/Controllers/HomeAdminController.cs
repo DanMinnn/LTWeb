@@ -61,19 +61,19 @@ namespace TestTemplate.Areas.Admin.Controllers
 
         public ActionResult DanhSachNhanVien()
         {
-            List<NHANVIEN> danhSachNhanVien = db.NHANVIENs.ToList();
+            List<NhanVien> danhSachNhanVien = db.NhanViens.ToList();
             return View(danhSachNhanVien);
         }
 
         public ActionResult DanhSachSan()
         {
-            List<san> dsSan = db.sans.ToList();
+            List<San> dsSan = db.Sans.ToList();
             return View(dsSan);
         }
 
         public ActionResult DanhSachLichDat()
         {
-            List<lichdat> dsLichDat = db.lichdats.ToList();
+            List<LichDat> dsLichDat = db.LichDats.ToList();
             return View(dsLichDat);
         }
 

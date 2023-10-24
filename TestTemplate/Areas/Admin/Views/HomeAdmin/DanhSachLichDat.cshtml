@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TestTemplate.Models.lichdat>
+﻿@model IEnumerable<TestTemplate.Models.LichDat>
 
 @{
     ViewBag.Title = "DanhSachLichDat";
@@ -36,30 +36,30 @@
 @foreach (var item in Model) {
 <tr style="padding-left: 10px">
     <td>
-        @Html.DisplayFor(modelItem => item.MaDatSan)
+        @Html.DisplayFor(modelItem => item.MaLichDat)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.KhachHang.HoTen)
+        @Html.DisplayFor(modelItem => item.user_KhachHang.HoTen)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.san.sosan)
+        @Html.DisplayFor(modelItem => item.San.MaSan)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.san.macs)
+        @Html.DisplayFor(modelItem => item.San.MaDanhMuc)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.TGianBatDau)
+        @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.TGianKetThuc)
+        @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.san.giatien)
+        @Html.DisplayFor(modelItem => item.TrangThai)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.MaDatSan }) |
-        @Html.ActionLink("Details", "Details", new { id = item.MaDatSan }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.MaDatSan })
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaLichDat }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaLichDat }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaLichDat })
     </td>
 </tr>
 }

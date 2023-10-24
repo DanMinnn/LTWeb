@@ -15,7 +15,7 @@ namespace TestTemplate.Controllers
         {
             // Lấy thông báo đặt sân thành công từ TempData (nếu có)
             ViewBag.ThongBaoDatSan = TempData["ThongBaoDatSan"] as string;
-            var lstCSBongDa = db.cosoes.Where(n => n.mals == "f");  
+            var lstCSBongDa = db.CoSoes.Where(n => n.MaLoaiCS == "bongDa");  
             //ViewBag.CsBongDa = lstCSBongDa;
             return View(lstCSBongDa);
         }

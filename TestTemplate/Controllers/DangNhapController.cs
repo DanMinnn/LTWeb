@@ -12,6 +12,7 @@ namespace TestTemplate.Controllers
         public ActionResult Index()
         {
             return RedirectToAction("DangNhap", "HomeAdmin", new { area = "Admin" });
+            //return View();
         }
     }
 }

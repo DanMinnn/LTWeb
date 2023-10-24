@@ -12,24 +12,18 @@ namespace TestTemplate.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LichDat
+    public partial class LoaiCoSo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LichDat()
+        public LoaiCoSo()
         {
-            this.HoaDons = new HashSet<HoaDon>();
+            this.CoSoes = new HashSet<CoSo>();
         }
     
-        public string MaLichDat { get; set; }
-        public string MaKhachHang { get; set; }
-        public string MaSan { get; set; }
-        public Nullable<System.DateTime> ThoiGianBatDau { get; set; }
-        public Nullable<System.DateTime> ThoiGianKetThuc { get; set; }
-        public Nullable<bool> TrangThai { get; set; }
+        public string MaLoaiCS { get; set; }
+        public string TenLoaiCS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
-        public virtual user_KhachHang user_KhachHang { get; set; }
-        public virtual San San { get; set; }
+        public virtual ICollection<CoSo> CoSoes { get; set; }
     }
 }

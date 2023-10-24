@@ -1,4 +1,4 @@
-﻿@model TestTemplate.Models.coso
+﻿@model TestTemplate.Models.CoSo
 
 @{
     ViewBag.Title = "Cập nhật cơ sở";
@@ -16,12 +16,12 @@
 <div class="form-horizontal">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.macs)
+    @Html.HiddenFor(model => model.MaCS)
     <div class="form-group">
         <label class="control-label col-md-10 " style="margin-top: 10px">Tên cơ sở</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.tencs, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.tencs, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.TenCS, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenCS, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -29,31 +29,31 @@
         <label class="control-label col-md-10 " style="margin-top: 10px">Hình ảnh</label>
         <div class="col-md-10">
             <input type="file" name="FileAnh" />
-            @Html.ValidationMessageFor(model => model.hinhanh, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-10 " style="margin-top: 10px">Địa chỉ</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-10 " style="margin-top: 10px">Link google maps</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.LinkMap, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LinkMap, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-10 " style="margin-top: 10px">Mức giá</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.mucgia, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.mucgia, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.MucGia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MucGia, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -61,16 +61,16 @@
         <label class="control-label col-md-10 " style="margin-top: 10px">Mã loại sân</label>
         <div class="col-md-10">
             <select name="MaLs" class="form-control">
-                @foreach (var loai in db.loaisans.ToList())
+                @foreach (var loai in db.LoaiCoSoes.ToList())
                 {
-                    <option value="@loai.mals">@loai.tenls</option>
+                    <option value="@loai.MaLoaiCS">@loai.TenLoaiCS</option>
                 }
                 @*<option value="BongDa">f</option>
                     <option value="BongRo">br</option>
                     <option value="CauLong">bmt</option>
                     <option value="Tennis">tennis   </option>*@
             </select>
-            @Html.ValidationMessageFor(model => model.mals, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.MaLoaiCS, "", new { @class = "text-danger" })
         </div>
     </div>
 

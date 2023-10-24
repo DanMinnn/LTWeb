@@ -14,7 +14,7 @@ namespace TestTemplate.Areas.Admin.Controllers
 
         public ActionResult DanhSachCoSo()
         {
-            List<coso> danhSachCoSo = db.cosoes.ToList();
+            List<CoSo> danhSachCoSo = db.CoSoes.ToList();
             return View(danhSachCoSo);
         }
 
@@ -24,19 +24,19 @@ namespace TestTemplate.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThemMoi(coso model, HttpPostedFileBase fileAnh)
+        public ActionResult ThemMoi(CoSo model, HttpPostedFileBase fileAnh)
         {
             if (fileAnh.ContentLength > 0)
             {
                 string rootFolder = Server.MapPath("/Content/img/");
                 string pathImage = rootFolder + fileAnh.FileName;
                 fileAnh.SaveAs(pathImage);
-                model.hinhanh = fileAnh.FileName;
+                model.HinhAnh = fileAnh.FileName;
             }
 
-            if (string.IsNullOrEmpty(model.macs) == true || string.IsNullOrEmpty(model.tencs) == true ||
-                string.IsNullOrEmpty(model.hinhanh) == true || string.IsNullOrEmpty(model.link) == true ||
-                    string.IsNullOrEmpty(model.mucgia) == true || string.IsNullOrEmpty(model.diachi) == true)
+            if (string.IsNullOrEmpty(model.MaCS) == true || string.IsNullOrEmpty(model.TenCS) == true ||
+                string.IsNullOrEmpty(model.HinhAnh) == true || string.IsNullOrEmpty(model.LinkMap) == true ||
+                    string.IsNullOrEmpty(model.MucGia) == true || string.IsNullOrEmpty(model.DiaChi) == true)
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model);
@@ -45,7 +45,7 @@ namespace TestTemplate.Areas.Admin.Controllers
            
             try
             {
-                db.cosoes.Add(model);
+                db.CoSoes.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("DanhSachCoSo");
             }
@@ -58,24 +58,24 @@ namespace TestTemplate.Areas.Admin.Controllers
 
         public ActionResult CapNhat(string id)
         {
-            var model_Edit = db.cosoes.Find(id);
+            var model_Edit = db.CoSoes.Find(id);
             return View(model_Edit);
         }
 
         [HttpPost]
-        public ActionResult CapNhat(coso model_Edit, HttpPostedFileBase fileAnh)
+        public ActionResult CapNhat(CoSo model_Edit, HttpPostedFileBase fileAnh)
         {
             if (fileAnh.ContentLength > 0)
             {
                 string rootFolder = Server.MapPath("/Content/img/");
                 string pathImage = rootFolder + fileAnh.FileName;
                 fileAnh.SaveAs(pathImage);
-                model_Edit.hinhanh = fileAnh.FileName;
+                model_Edit.HinhAnh = fileAnh.FileName;
             }
 
-            if (string.IsNullOrEmpty(model_Edit.tencs) == true ||
-                string.IsNullOrEmpty(model_Edit.hinhanh) == true || string.IsNullOrEmpty(model_Edit.link) == true ||
-                    string.IsNullOrEmpty(model_Edit.mucgia) == true || string.IsNullOrEmpty(model_Edit.diachi) == true)
+            if (string.IsNullOrEmpty(model_Edit.TenCS) == true ||
+                string.IsNullOrEmpty(model_Edit.HinhAnh) == true || string.IsNullOrEmpty(model_Edit.LinkMap) == true ||
+                    string.IsNullOrEmpty(model_Edit.MucGia) == true || string.IsNullOrEmpty(model_Edit.DiaChi) == true)
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);
@@ -83,15 +83,15 @@ namespace TestTemplate.Areas.Admin.Controllers
             
            
 
-            var updateCoSo = db.cosoes.Find(model_Edit.macs);
+            var updateCoSo = db.CoSoes.Find(model_Edit.MaCS);
             try
             {
-                updateCoSo.tencs = model_Edit.tencs;
-                updateCoSo.hinhanh = model_Edit.hinhanh;
-                updateCoSo.diachi = model_Edit.diachi;
-                updateCoSo.link = model_Edit.link;
-                updateCoSo.mucgia = model_Edit.mucgia;
-                updateCoSo.mals = model_Edit.mals;
+                updateCoSo.TenCS = model_Edit.TenCS;
+                updateCoSo.HinhAnh = model_Edit.HinhAnh;
+                updateCoSo.DiaChi = model_Edit.DiaChi;
+                updateCoSo.LinkMap = model_Edit.LinkMap;
+                updateCoSo.MucGia = model_Edit.MucGia;
+                updateCoSo.MaLoaiCS = model_Edit.MaLoaiCS;
 
                 db.SaveChanges();
                 return RedirectToAction("DanhSachCoSo");
@@ -105,8 +105,8 @@ namespace TestTemplate.Areas.Admin.Controllers
 
         public ActionResult Xoa(string id)
         {
-            var model = db.cosoes.Find(id);
-            db.cosoes.Remove(model);
+            var model = db.CoSoes.Find(id);
+            db.CoSoes.Remove(model);
             db.SaveChanges();
             return RedirectToAction("DanhSachCoSo");
         }

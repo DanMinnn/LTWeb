@@ -45,14 +45,26 @@
                     <label class="control-label col-md-2" style="margin-top: 10px">Số sân</label>
                     <div class="col-md-10">
                         <select name="ma_san" class="form-control">
-                            @foreach (var so in db.sans.Where(c => c.macs == idcoso).ToList())
+                            @foreach(var dm in db.DanhMucSans.ToList())
+                             {
+                                <option value="@dm.MaDanhMuc">@dm.LoaiSan</option>
+                             }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" style="margin-top: 10px">Số sân</label>
+                    <div class="col-md-10">
+                        <select name="ma_san" class="form-control">
+                            @foreach (var so in db.Sans.Where(c => c.MaDanhMuc == idcoso).ToList())
                             {
-                                <option value="@so.masan"> @so.sosan </option>
+                                <option value="@so.MaSan"> @so.SoSan </option>
                             }
                         </select>
                     </div>
                 </div>
-                
+
                 <input type="hidden" id="ma_san" name="ma_san" />
 
                 <div class="form-group">

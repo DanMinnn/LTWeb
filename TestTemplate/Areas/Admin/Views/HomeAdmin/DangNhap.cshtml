@@ -1,4 +1,5 @@
 ﻿
+
 @{
     Layout = null;
 }
@@ -7,10 +8,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - A Pen by Mohithpoojary</title>
+    <title>Đăng nhập</title>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-    <link href="~/Areas/Admin/css_login/style.css" rel="stylesheet" />
+    @*<link href="~/Areas/Admin/css_js_login/style.css" rel="stylesheet" />*@
+    <link href="~/Content/style.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -33,18 +35,20 @@
                         </p>
                     </div>
                     <button class="button login__submit">
-                        <span class="button__text">Log In Now</span>
+                        <span class="button__text">Log in now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
                 </form>
-                @*<div class="social-login">
-                    <h3>log in via</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-login__icon fab fa-instagram"></a>
-                        <a href="#" class="social-login__icon fab fa-facebook"></a>
-                        <a href="#" class="social-login__icon fab fa-twitter"></a>
-                    </div>
-                </div>*@
+
+                <div class="go_back">
+
+                    <a href="@Url.RouteUrl("Home")" class="button go-back__submit">
+                        <span class="button__text">Go home page</span>
+
+                        <i class="button__icon fas fa-chevron-left"></i>
+                    </a>
+                    
+                </div>
             </div>
             <div class="screen__background">
                 <span class="screen__background__shape screen__background__shape4"></span>
@@ -58,3 +62,5 @@
 
 </body>
 </html>
+
+
