@@ -17,8 +17,5 @@ namespace TestTemplate.Models
         public string MaQTV { get; set; }
         public string MaQuyen { get; set; }
         public string GhiChu { get; set; }
-    
-        public virtual QuanTriVien QuanTriVien { get; set; }
-        public virtual Quyen Quyen { get; set; }
     }
 }

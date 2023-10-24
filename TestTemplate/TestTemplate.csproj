@@ -197,7 +197,7 @@
     <Compile Include="Models\San.cs">
       <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\TaiKhoan.cs">
       <DependentUpon>db_QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_KhachHang.cs">

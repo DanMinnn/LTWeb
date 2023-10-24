@@ -18,8 +18,6 @@ namespace TestTemplate.Models
         public QuanTriVien()
         {
             this.NhanViens = new HashSet<NhanVien>();
-            this.PhanQuyens = new HashSet<PhanQuyen>();
-            this.user_KhachHang = new HashSet<user_KhachHang>();
         }
     
         public string MaQTV { get; set; }
@@ -29,9 +27,5 @@ namespace TestTemplate.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanQuyen> PhanQuyens { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user_KhachHang> user_KhachHang { get; set; }
     }
 }

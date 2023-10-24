@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyDatSanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QLDSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CoSo">
           <Key>
             <PropertyRef Name="MaCS" />
@@ -122,23 +122,14 @@
           <Property Name="GiaSan" Type="nvarchar" MaxLength="50" />
           <Property Name="MaDanhMuc" Type="char" MaxLength="20" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
-            <PropertyRef Name="MaKH" />
-            <PropertyRef Name="MaQTV" />
+            <PropertyRef Name="MaTK" />
           </Key>
-          <Property Name="MaKH" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaQTV" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaTK" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="char" MaxLength="10" />
+          <Property Name="username" Type="varchar" MaxLength="12" />
+          <Property Name="password" Type="varchar" MaxLength="12" />
         </EntityType>
         <EntityType Name="user_KhachHang">
           <Key>
@@ -271,79 +262,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PhanCong_CoSo">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="1" />
-          <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCS" />
-            </Principal>
-            <Dependent Role="PhanCong">
-              <PropertyRef Name="MaCS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanCong_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="PhanCong">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanQuyen_QuanTriVien">
-          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="1" />
-          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QuanTriVien">
-              <PropertyRef Name="MaQTV" />
-            </Principal>
-            <Dependent Role="PhanQuyen">
-              <PropertyRef Name="MaQTV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanQuyen_Quyen">
-          <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
-          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Quyen">
-              <PropertyRef Name="MaQuyen" />
-            </Principal>
-            <Dependent Role="PhanQuyen">
-              <PropertyRef Name="MaQuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TaiKhoan_QuanTriVien">
-          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="1" />
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QuanTriVien">
-              <PropertyRef Name="MaQTV" />
-            </Principal>
-            <Dependent Role="TaiKhoan">
-              <PropertyRef Name="MaQTV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TaiKhoan_user_KhachHang">
-          <End Role="user_KhachHang" Type="Self.user_KhachHang" Multiplicity="1" />
-          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user_KhachHang">
-              <PropertyRef Name="MaKH" />
-            </Principal>
-            <Dependent Role="TaiKhoan">
-              <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="QuanLyDatSanModelStoreContainer">
+        <EntityContainer Name="QLDSModelStoreContainer">
           <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhMucSan" EntityType="Self.DanhMucSan" Schema="dbo" store:Type="Tables" />
@@ -356,7 +275,6 @@
           <EntitySet Name="QuanTriVien" EntityType="Self.QuanTriVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="San" EntityType="Self.San" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_KhachHang" EntityType="Self.user_KhachHang" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__CoSo__MaLoaiCS__398D8EEE" Association="Self.FK__CoSo__MaLoaiCS__398D8EEE">
@@ -399,36 +317,12 @@
             <End Role="DanhMucSan" EntitySet="DanhMucSan" />
             <End Role="San" EntitySet="San" />
           </AssociationSet>
-          <AssociationSet Name="FK_PhanCong_CoSo" Association="Self.FK_PhanCong_CoSo">
-            <End Role="CoSo" EntitySet="CoSo" />
-            <End Role="PhanCong" EntitySet="PhanCong" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanCong_NhanVien" Association="Self.FK_PhanCong_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="PhanCong" EntitySet="PhanCong" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanQuyen_QuanTriVien" Association="Self.FK_PhanQuyen_QuanTriVien">
-            <End Role="QuanTriVien" EntitySet="QuanTriVien" />
-            <End Role="PhanQuyen" EntitySet="PhanQuyen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanQuyen_Quyen" Association="Self.FK_PhanQuyen_Quyen">
-            <End Role="Quyen" EntitySet="Quyen" />
-            <End Role="PhanQuyen" EntitySet="PhanQuyen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TaiKhoan_QuanTriVien" Association="Self.FK_TaiKhoan_QuanTriVien">
-            <End Role="QuanTriVien" EntitySet="QuanTriVien" />
-            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TaiKhoan_user_KhachHang" Association="Self.FK_TaiKhoan_user_KhachHang">
-            <End Role="user_KhachHang" EntitySet="user_KhachHang" />
-            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="QuanLyDatSanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="QLDSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CoSo">
           <Key>
             <PropertyRef Name="MaCS" />
@@ -442,7 +336,6 @@
           <Property Name="MaLoaiCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSo__MaLoaiCS__398D8EEE" FromRole="CoSo" ToRole="LoaiCoSo" />
           <NavigationProperty Name="DanhMucSans" Relationship="Self.FK__DanhMucSan__MaCS__3C69FB99" FromRole="CoSo" ToRole="DanhMucSan" />
-          <NavigationProperty Name="PhanCongs" Relationship="Self.FK_PhanCong_CoSo" FromRole="CoSo" ToRole="PhanCong" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
@@ -518,7 +411,6 @@
           <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaNV__5070F446" FromRole="NhanVien" ToRole="HoaDon" />
           <NavigationProperty Name="QuanTriVien" Relationship="Self.FK__NhanVien__MaQTV__4BAC3F29" FromRole="NhanVien" ToRole="QuanTriVien" />
-          <NavigationProperty Name="PhanCongs" Relationship="Self.FK_PhanCong_NhanVien" FromRole="NhanVien" ToRole="PhanCong" />
         </EntityType>
         <EntityType Name="PhanCong">
           <Key>
@@ -528,8 +420,6 @@
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CoSo" Relationship="Self.FK_PhanCong_CoSo" FromRole="PhanCong" ToRole="CoSo" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK_PhanCong_NhanVien" FromRole="PhanCong" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="PhanQuyen">
           <Key>
@@ -539,8 +429,6 @@
           <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QuanTriVien" Relationship="Self.FK_PhanQuyen_QuanTriVien" FromRole="PhanQuyen" ToRole="QuanTriVien" />
-          <NavigationProperty Name="Quyen" Relationship="Self.FK_PhanQuyen_Quyen" FromRole="PhanQuyen" ToRole="Quyen" />
         </EntityType>
         <EntityType Name="QuanTriVien">
           <Key>
@@ -551,8 +439,6 @@
           <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaQTV__4BAC3F29" FromRole="QuanTriVien" ToRole="NhanVien" />
-          <NavigationProperty Name="PhanQuyens" Relationship="Self.FK_PhanQuyen_QuanTriVien" FromRole="QuanTriVien" ToRole="PhanQuyen" />
-          <NavigationProperty Name="user_KhachHang" Relationship="Self.TaiKhoan" FromRole="QuanTriVien" ToRole="user_KhachHang" />
         </EntityType>
         <EntityType Name="Quyen">
           <Key>
@@ -560,7 +446,6 @@
           </Key>
           <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhanQuyens" Relationship="Self.FK_PhanQuyen_Quyen" FromRole="Quyen" ToRole="PhanQuyen" />
         </EntityType>
         <EntityType Name="San">
           <Key>
@@ -573,15 +458,14 @@
           <NavigationProperty Name="DanhMucSan" Relationship="Self.FK__San__MaDanhMuc__3F466844" FromRole="San" ToRole="DanhMucSan" />
           <NavigationProperty Name="LichDats" Relationship="Self.FK__LichDat__MaSan__45F365D3" FromRole="San" ToRole="LichDat" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="TaiKhoan">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="MaTK" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MaTK" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="user_KhachHang">
           <Key>
@@ -595,7 +479,6 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaKhachH__4F7CD00D" FromRole="user_KhachHang" ToRole="HoaDon" />
           <NavigationProperty Name="LichDats" Relationship="Self.FK__LichDat__MaKhach__44FF419A" FromRole="user_KhachHang" ToRole="LichDat" />
-          <NavigationProperty Name="QuanTriViens" Relationship="Self.TaiKhoan" FromRole="user_KhachHang" ToRole="QuanTriVien" />
         </EntityType>
         <Association Name="FK__CoSo__MaLoaiCS__398D8EEE">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
@@ -617,18 +500,6 @@
               <PropertyRef Name="MaCS" />
             </Principal>
             <Dependent Role="DanhMucSan">
-              <PropertyRef Name="MaCS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanCong_CoSo">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="1" />
-          <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCS" />
-            </Principal>
-            <Dependent Role="PhanCong">
               <PropertyRef Name="MaCS" />
             </Dependent>
           </ReferentialConstraint>
@@ -729,46 +600,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PhanCong_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="PhanCong">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanQuyen_QuanTriVien">
-          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="1" />
-          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QuanTriVien">
-              <PropertyRef Name="MaQTV" />
-            </Principal>
-            <Dependent Role="PhanQuyen">
-              <PropertyRef Name="MaQTV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PhanQuyen_Quyen">
-          <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
-          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Quyen">
-              <PropertyRef Name="MaQuyen" />
-            </Principal>
-            <Dependent Role="PhanQuyen">
-              <PropertyRef Name="MaQuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TaiKhoan">
-          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="*" />
-          <End Role="user_KhachHang" Type="Self.user_KhachHang" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="QuanLyDatSanEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CoSoes" EntityType="Self.CoSo" />
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
@@ -782,7 +613,7 @@
           <EntitySet Name="QuanTriViens" EntityType="Self.QuanTriVien" />
           <EntitySet Name="Quyens" EntityType="Self.Quyen" />
           <EntitySet Name="Sans" EntityType="Self.San" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
           <EntitySet Name="user_KhachHang" EntityType="Self.user_KhachHang" />
           <AssociationSet Name="FK__CoSo__MaLoaiCS__398D8EEE" Association="Self.FK__CoSo__MaLoaiCS__398D8EEE">
             <End Role="LoaiCoSo" EntitySet="LoaiCoSoes" />
@@ -791,10 +622,6 @@
           <AssociationSet Name="FK__DanhMucSan__MaCS__3C69FB99" Association="Self.FK__DanhMucSan__MaCS__3C69FB99">
             <End Role="CoSo" EntitySet="CoSoes" />
             <End Role="DanhMucSan" EntitySet="DanhMucSans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanCong_CoSo" Association="Self.FK_PhanCong_CoSo">
-            <End Role="CoSo" EntitySet="CoSoes" />
-            <End Role="PhanCong" EntitySet="PhanCongs" />
           </AssociationSet>
           <AssociationSet Name="FK__CTHD__MaHoaDon__534D60F1" Association="Self.FK__CTHD__MaHoaDon__534D60F1">
             <End Role="HoaDon" EntitySet="HoaDons" />
@@ -828,31 +655,15 @@
             <End Role="QuanTriVien" EntitySet="QuanTriViens" />
             <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK_PhanCong_NhanVien" Association="Self.FK_PhanCong_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhanCong" EntitySet="PhanCongs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanQuyen_QuanTriVien" Association="Self.FK_PhanQuyen_QuanTriVien">
-            <End Role="QuanTriVien" EntitySet="QuanTriViens" />
-            <End Role="PhanQuyen" EntitySet="PhanQuyens" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhanQuyen_Quyen" Association="Self.FK_PhanQuyen_Quyen">
-            <End Role="Quyen" EntitySet="Quyens" />
-            <End Role="PhanQuyen" EntitySet="PhanQuyens" />
-          </AssociationSet>
-          <AssociationSet Name="TaiKhoan" Association="Self.TaiKhoan">
-            <End Role="QuanTriVien" EntitySet="QuanTriViens" />
-            <End Role="user_KhachHang" EntitySet="user_KhachHang" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyDatSanModelStoreContainer" CdmEntityContainer="QuanLyDatSanEntities">
+        <EntityContainerMapping StorageEntityContainer="QLDSModelStoreContainer" CdmEntityContainer="QuanLyDatSanEntities">
           <EntitySetMapping Name="CoSoes">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.CoSo">
+            <EntityTypeMapping TypeName="QLDSModel.CoSo">
               <MappingFragment StoreEntitySet="CoSo">
                 <ScalarProperty Name="MaCS" ColumnName="MaCS" />
                 <ScalarProperty Name="TenCS" ColumnName="TenCS" />
@@ -865,7 +676,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTHDs">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.CTHD">
+            <EntityTypeMapping TypeName="QLDSModel.CTHD">
               <MappingFragment StoreEntitySet="CTHD">
                 <ScalarProperty Name="MaCTHD" ColumnName="MaCTHD" />
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
@@ -879,7 +690,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhMucSans">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.DanhMucSan">
+            <EntityTypeMapping TypeName="QLDSModel.DanhMucSan">
               <MappingFragment StoreEntitySet="DanhMucSan">
                 <ScalarProperty Name="MaDanhMuc" ColumnName="MaDanhMuc" />
                 <ScalarProperty Name="LoaiSan" ColumnName="LoaiSan" />
@@ -888,7 +699,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDons">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.HoaDon">
+            <EntityTypeMapping TypeName="QLDSModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
                 <ScalarProperty Name="MaLichDat" ColumnName="MaLichDat" />
@@ -899,7 +710,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LichDats">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.LichDat">
+            <EntityTypeMapping TypeName="QLDSModel.LichDat">
               <MappingFragment StoreEntitySet="LichDat">
                 <ScalarProperty Name="MaLichDat" ColumnName="MaLichDat" />
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
@@ -911,7 +722,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiCoSoes">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.LoaiCoSo">
+            <EntityTypeMapping TypeName="QLDSModel.LoaiCoSo">
               <MappingFragment StoreEntitySet="LoaiCoSo">
                 <ScalarProperty Name="MaLoaiCS" ColumnName="MaLoaiCS" />
                 <ScalarProperty Name="TenLoaiCS" ColumnName="TenLoaiCS" />
@@ -919,7 +730,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.NhanVien">
+            <EntityTypeMapping TypeName="QLDSModel.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -933,7 +744,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhanCongs">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.PhanCong">
+            <EntityTypeMapping TypeName="QLDSModel.PhanCong">
               <MappingFragment StoreEntitySet="PhanCong">
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="MaCS" ColumnName="MaCS" />
@@ -942,7 +753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhanQuyens">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.PhanQuyen">
+            <EntityTypeMapping TypeName="QLDSModel.PhanQuyen">
               <MappingFragment StoreEntitySet="PhanQuyen">
                 <ScalarProperty Name="MaQTV" ColumnName="MaQTV" />
                 <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
@@ -951,7 +762,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QuanTriViens">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.QuanTriVien">
+            <EntityTypeMapping TypeName="QLDSModel.QuanTriVien">
               <MappingFragment StoreEntitySet="QuanTriVien">
                 <ScalarProperty Name="MaQTV" ColumnName="MaQTV" />
                 <ScalarProperty Name="LoaiQTV" ColumnName="LoaiQTV" />
@@ -961,7 +772,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Quyens">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.Quyen">
+            <EntityTypeMapping TypeName="QLDSModel.Quyen">
               <MappingFragment StoreEntitySet="Quyen">
                 <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
                 <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
@@ -969,7 +780,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sans">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.San">
+            <EntityTypeMapping TypeName="QLDSModel.San">
               <MappingFragment StoreEntitySet="San">
                 <ScalarProperty Name="MaSan" ColumnName="MaSan" />
                 <ScalarProperty Name="SoSan" ColumnName="SoSan" />
@@ -978,19 +789,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="QLDSModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="user_KhachHang">
-            <EntityTypeMapping TypeName="QuanLyDatSanModel.user_KhachHang">
+            <EntityTypeMapping TypeName="QLDSModel.user_KhachHang">
               <MappingFragment StoreEntitySet="user_KhachHang">
                 <ScalarProperty Name="MaKH" ColumnName="MaKH" />
                 <ScalarProperty Name="username" ColumnName="username" />
@@ -1001,14 +811,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="TaiKhoan" TypeName="QuanLyDatSanModel.TaiKhoan" StoreEntitySet="TaiKhoan">
-            <EndProperty Name="QuanTriVien">
-              <ScalarProperty Name="MaQTV" ColumnName="MaQTV" />
-            </EndProperty>
-            <EndProperty Name="user_KhachHang">
-              <ScalarProperty Name="MaKH" ColumnName="MaKH" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
