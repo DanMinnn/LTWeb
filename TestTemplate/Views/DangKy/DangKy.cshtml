@@ -23,11 +23,15 @@
                 @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
             </div>
         </div>*@
-                <div>
-                    <p>
-                            <div class="alert alert-success">@TempData["DangKyThanhCong"]</div>
-                    </p>
-                </div>
+            <div>
+                <p>
+                    @if (!string.IsNullOrEmpty(ViewBag.DangKyThanhCong))
+                    {
+                        <div class="alert alert-success" style="margin-right: 1000px">@ViewBag.DangKyThanhCong</div>
+                    }
+                </p>
+
+            </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2 " style="margin-top: 10px">Tên tài khoản</label>

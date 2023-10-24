@@ -82,6 +82,7 @@ namespace TestTemplate.Controllers
             }
 
             TempData["DangKyThanhCong"] = "Đăng ký thành công";
+            ViewBag.DangKyThanhCong = TempData["DangKyThanhCong"] as string;
             return View();
         }
 
