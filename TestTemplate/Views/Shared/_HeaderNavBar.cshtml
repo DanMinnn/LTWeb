@@ -25,8 +25,9 @@
             @if (Session["user"] != null)
             {
                 user_KhachHang khachHang = (user_KhachHang)Session["user"];
-                <span>Chào @khachHang.HoTen</span>
-                @Html.ActionLink("Đăng xuất", "DangXuat", "DangNhap");
+                <span style="padding: 28px; color: black; ">Chào @khachHang.HoTen</span>
+                @*@Html.ActionLink("Đăng xuất", "DangXuat", "DangNhap");*@
+                <a href="@Url.Action("DangXuat", "DangNhap")" class="btn btn-danger px-3 d-none d-lg-flex ">Đăng xuất</a>
             }
             else
             {
