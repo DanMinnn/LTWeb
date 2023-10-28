@@ -35,6 +35,18 @@
                 <a href="@Url.Action("DangNhap", "DangNhap")" class="btn btn-primary px-3 d-none d-lg-flex ">Đăng nhập</a>
             }
         </div>
+        <div>
+
+        </div>
+
     </nav>
+    <p>
+        @if (!string.IsNullOrEmpty(ViewBag.ThongBaoDatSan))
+        {
+            <br /> <!-- Thêm thẻ <br> ở đây để thông báo xuống dòng -->
+            <div class="alert alert-success"> @ViewBag.ThongBaoDatSan</div>
+
+        }
+    </p>
 </div>
 <!-- Navbar End -->

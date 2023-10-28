@@ -13,10 +13,10 @@ namespace TestTemplate.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyDatSanEntities : DbContext
+    public partial class QLDSEntities : DbContext
     {
-        public QuanLyDatSanEntities()
-            : base("name=QuanLyDatSanEntities")
+        public QLDSEntities()
+            : base("name=QLDSEntities")
         {
         }
     

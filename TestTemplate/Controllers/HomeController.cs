@@ -9,13 +9,14 @@ namespace TestTemplate.Controllers
 {
     public class HomeController : Controller
     {
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
         
         public ActionResult Index()
         {
 
             // Lần lượt tạo ViewBag để lấy list cơ sở từ sql
-
+            // Lấy thông báo đặt sân thành công từ TempData (nếu có)
+            ViewBag.ThongBaoDatSan = TempData["ThongBaoDatSan"] as string;
             //List bóng đá
             var listCsBongDa = db.CoSoes.Where(n => n.MaLoaiCS == "bongDa");
             // Gán vào ViewBag

@@ -57,7 +57,7 @@
           <Property Name="MaSan" Type="char" MaxLength="10" />
           <Property Name="ThoiGianBatDau" Type="datetime" />
           <Property Name="ThoiGianKetThuc" Type="datetime" />
-          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LoaiCoSo">
           <Key>
@@ -384,7 +384,7 @@
           <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="ThoiGianBatDau" Type="DateTime" Precision="3" />
           <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="3" />
-          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaLichDa__4E88ABD4" FromRole="LichDat" ToRole="HoaDon" />
           <NavigationProperty Name="user_KhachHang" Relationship="Self.FK__LichDat__MaKhach__44FF419A" FromRole="LichDat" ToRole="user_KhachHang" />
           <NavigationProperty Name="San" Relationship="Self.FK__LichDat__MaSan__45F365D3" FromRole="LichDat" ToRole="San" />
@@ -600,7 +600,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyDatSanEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLDSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CoSoes" EntityType="Self.CoSo" />
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
           <EntitySet Name="DanhMucSans" EntityType="Self.DanhMucSan" />
@@ -661,7 +661,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLDSModelStoreContainer" CdmEntityContainer="QuanLyDatSanEntities">
+        <EntityContainerMapping StorageEntityContainer="QLDSModelStoreContainer" CdmEntityContainer="QLDSEntities">
           <EntitySetMapping Name="CoSoes">
             <EntityTypeMapping TypeName="QLDSModel.CoSo">
               <MappingFragment StoreEntitySet="CoSo">

@@ -8,13 +8,11 @@ namespace TestTemplate.Models
 {
     public class DatSan
     {
-        public string hoTen { get; set; }
-        public string email { get; set; }
-        [Required(ErrorMessage = "Số điện thoại là trường bắt buộc.")]
-        [RegularExpression(@"^(\+\d{1,3}[- ]?)?\d{10}$", ErrorMessage = "Số điện thoại không hợp lệ.")]
-        public string soDienThoai { get; set; }
+        public string ma_danhmuc { get; set; }
         public string ma_San { get; set; }
-        public DateTime gioBatDau { get; set; }
-        public DateTime gioKetThuc { get; set; }
+        public string ma_KH { get; set; }
+        public string ngayDatSan { get; set; } // Thêm thuộc tính ngày đặt sân kiểu string
+        public string gioBatDau { get; set; } // Thêm thuộc tính giờ bắt đầu kiểu string
+        public string gioKetThuc { get; set; }
     }
 }

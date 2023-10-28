@@ -11,7 +11,7 @@ namespace TestTemplate.Areas.Admin.Controllers
     public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
         public ActionResult Index()
         {
             if(Session["user"] == null)

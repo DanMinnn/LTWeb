@@ -9,7 +9,7 @@ namespace TestTemplate.Controllers
 {
     public class TimKiemController : Controller
     {
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+       QLDSEntities db = new QLDSEntities();
         // GET: TimKiem
         public ActionResult KQTimKiem(string sTuKhoa)
         {

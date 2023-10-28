@@ -3,8 +3,12 @@
 @{
     ViewBag.Title = "Đặt sân";
     Layout = "~/Views/Shared/LayoutDatSan.cshtml";
-    TestTemplate.Models.QuanLyDatSanEntities db = new TestTemplate.Models.QuanLyDatSanEntities();
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
     var idcoso = Session["id_coso"] as string;
+
+    var kh = Session["user"] as TestTemplate.Models.user_KhachHang;
+    
+    
 }
 
 
@@ -16,61 +20,37 @@
             <div class="form-horizontal">
                 <h4> @Session["ten_coso"] </h4>
                 <hr />
+
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <label class="control-label col-md-2 " style="margin-top: 10px">Họ tên</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.hoTen, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.hoTen, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2" style="margin-top: 10px">Email</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Điền email (nếu có)" } })
-                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2" style="margin-top: 10px">Số điện thoại</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.soDienThoai, new { htmlAttributes = new { @class = "form-control", type = "number" } })
-                        @Html.ValidationMessageFor(model => model.soDienThoai, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                
 
                 <div class="form-group">
                     <label class="control-label col-md-2" style="margin-top: 10px">Loại sân</label>
                     <div class="col-md-10">
-                        <select name="ma_san" class="form-control">
-                            @foreach(var dm in db.DanhMucSans.ToList())
-                             {
-                                <option value="@dm.MaDanhMuc">@dm.LoaiSan</option>
-                             }
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2" style="margin-top: 10px">Số sân</label>
-                    <div class="col-md-10">
-                        <select name="ma_san" class="form-control">
-                            @foreach (var so in db.Sans.Where(c => c.MaDanhMuc == idcoso).ToList())
+                        <select name="ma_danhmuc" class="form-control">
+                            @foreach (var dm in db.DanhMucSans.Where(c => c.MaCS == idcoso).ToList())
                             {
-                                <option value="@so.MaSan"> @so.SoSan </option>
+                                <option value="@dm.MaDanhMuc">@dm.LoaiSan</option>
                             }
                         </select>
                     </div>
                 </div>
+                <input type="hidden" id="ma_danhmuc" name="ma_danhmuc" />
 
-                <input type="hidden" id="ma_san" name="ma_san" />
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" style="margin-top: 10px">Ngày đặt sân</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ngayDatSan, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(model => model.ngayDatSan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" style="margin-top: 10px">Giờ bắt đầu</label>
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.gioBatDau, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "datetime-local" })
+                        @Html.TextBoxFor(m => m.gioBatDau, "{0:HH:mm}", new { @class = "form-control", type = "time" })
                         @Html.ValidationMessageFor(model => model.gioBatDau, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -78,7 +58,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2" style="margin-top: 10px">Giờ kết thúc</label>
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.gioKetThuc, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "datetime-local" })
+                        @Html.TextBoxFor(m => m.gioKetThuc, "{0:HH:mm}", new { @class = "form-control", type = "time" })
                         @Html.ValidationMessageFor(model => model.gioKetThuc, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -94,9 +74,10 @@
 }
 <script>
     $(document).ready(function () {
-        $("select[name='ma_san']").change(function () {
+        $("select[name='ma_danhmuc']").change(function () {
             var selectedSan = $(this).val();
-            $("#maSan").val(selectedSan);
+            $("#MaDanhMuc").val(selectedSan);
         });
     });
 </script>
+

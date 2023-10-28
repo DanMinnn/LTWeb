@@ -2,22 +2,20 @@
 @{
     ViewBag.Title = "XacNhanDatSan";
     Layout = "~/Views/Shared/LayoutDatSan.cshtml";
+    var loaisan = TempData["Loaisan"] as string;
 }
 
 
 <div class="container">
     <h4>Thông tin đặt sân:</h4>
     <p>@Session["ten_coso"]</p>
+    <p>Loại sân: @loaisan</p>
     <p>Mã Sân: @Model.ma_San</p>
-    <p>Họ tên: @Model.hoTen</p>
-    <p>Số điện thoại: @Model.soDienThoai</p>
-    <p>Thời gian trận đấu: @Model.gioBatDau.ToShortDateString() @Model.gioBatDau.TimeOfDay @Model.gioKetThuc.TimeOfDay</p>
+    <p>Thời gian trận đấu: @Model.ngayDatSan @Model.gioBatDau @Model.gioKetThuc</p>
 
     <form method="post" action="@Url.Action("XacNhanDatSan", "datsan")">
         @Html.HiddenFor(model => model.ma_San)
-        @Html.HiddenFor(model => model.hoTen)
-        @Html.HiddenFor(model => model.soDienThoai)
-        @Html.HiddenFor(model => model.email)
+        @Html.HiddenFor(model => model.ngayDatSan)
         @Html.HiddenFor(model => model.gioBatDau)
         @Html.HiddenFor(model => model.gioKetThuc)
 

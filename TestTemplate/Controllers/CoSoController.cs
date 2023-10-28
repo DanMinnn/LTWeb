@@ -10,7 +10,7 @@ namespace TestTemplate.Controllers
     public class CoSoController : Controller
     {
         // GET: CoSo
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
         [ChildActionOnly] // người dùng không thể get partial
         public ActionResult CoSoBongDaPartial()
         {

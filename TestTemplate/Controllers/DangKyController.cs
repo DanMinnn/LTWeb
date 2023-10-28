@@ -10,7 +10,7 @@ namespace TestTemplate.Controllers
     public class DangKyController : Controller
     {
         // GET: DangKy
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
         private static int MaKH = 1; // Biến đếm mã khách hàng
         private static int MaTK = 1; // Biến đếm mã khách hàng
         public ActionResult DangKy()

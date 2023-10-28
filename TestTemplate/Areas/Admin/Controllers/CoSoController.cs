@@ -10,7 +10,7 @@ namespace TestTemplate.Areas.Admin.Controllers
     public class CoSoController : Controller
     {
         // GET: Admin/CoSo
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
 
         public ActionResult DanhSachCoSo()
         {

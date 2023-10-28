@@ -145,63 +145,63 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CoSo.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CTHD.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DangKy.cs" />
     <Compile Include="Models\DanhMucSan.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DatSan.cs" />
-    <Compile Include="Models\db_QLDS.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_QLDS.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\db_QLDS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_QLDS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\db_QLDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_QLDS.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LichDat.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiCoSo.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhanCong.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhanQuyen.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLDS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLDS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\QuanTriVien.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Quyen.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\San.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_KhachHang.cs">
-      <DependentUpon>db_QLDS.tt</DependentUpon>
+      <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -5188,15 +5188,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\db_QLDS.Context.tt">
+    <Content Include="Models\QLDS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_QLDS.edmx</DependentUpon>
-      <LastGenOutput>db_QLDS.Context.cs</LastGenOutput>
+      <DependentUpon>QLDS.edmx</DependentUpon>
+      <LastGenOutput>QLDS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\db_QLDS.tt">
+    <Content Include="Models\QLDS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_QLDS.edmx</DependentUpon>
-      <LastGenOutput>db_QLDS.cs</LastGenOutput>
+      <DependentUpon>QLDS.edmx</DependentUpon>
+      <LastGenOutput>QLDS.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -5556,12 +5556,12 @@
     <Content Include="Areas\Admin\Views\CoSo\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\CapNhat.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachLichDat.cshtml" />
-    <EntityDeploy Include="Models\db_QLDS.edmx">
+    <EntityDeploy Include="Models\QLDS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>db_QLDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLDS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\db_QLDS.edmx.diagram">
-      <DependentUpon>db_QLDS.edmx</DependentUpon>
+    <Content Include="Models\QLDS.edmx.diagram">
+      <DependentUpon>QLDS.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

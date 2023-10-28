@@ -9,7 +9,7 @@ namespace TestTemplate.Controllers
 {
     public class DangNhapController : Controller
     {
-        QuanLyDatSanEntities db = new QuanLyDatSanEntities();
+        QLDSEntities db = new QLDSEntities();
         // GET: DangNhap
         public ActionResult DangNhap()
         {
