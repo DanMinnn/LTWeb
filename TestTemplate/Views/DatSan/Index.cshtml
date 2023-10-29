@@ -7,13 +7,7 @@
     var idcoso = Session["id_coso"] as string;
 
     var kh = Session["user"] as TestTemplate.Models.user_KhachHang;
-
-
-
-
 }
-
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -24,7 +18,6 @@
                     <hr />
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
 
                     <div class="form-group">
                         <label class="control-label col-md-2" style="margin-top: 10px">Loại sân</label>
@@ -38,8 +31,6 @@
                         </div>
                     </div>
                     <input type="hidden" id="ma_danhmuc" name="ma_danhmuc" />
-
-
 
                     <div class="form-group">
                         <label class="control-label col-md-2" style="margin-top: 10px">Ngày đặt sân</label>

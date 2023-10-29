@@ -16,8 +16,6 @@ namespace TestTemplate.Controllers
         {
             Session["ten_coso"] = ten_coso;
             Session["id_coso"] = id_coso;
-
-            
             return View();
         }
 
@@ -60,6 +58,7 @@ namespace TestTemplate.Controllers
             {
                 TempData["LoaiSan"] = danhMucSan.LoaiSan;
             }
+
             var khachhang = Session["user"] as user_KhachHang;
 
             model.ma_KH = khachhang.MaKH;
@@ -218,7 +217,14 @@ namespace TestTemplate.Controllers
             return true; // Thời gian hợp lệ.
         }
 
-      
-       
+        public ActionResult LichSuDatSan(DatSan model)
+        {
+
+            user_KhachHang khachHang = (user_KhachHang)Session["user"];
+
+            List<LichDat> lichDats = db.LichDats.Where(ld => ld.MaKhachHang == khachHang.MaKH).ToList();
+
+            return View(lichDats);
+        }
     }
 }

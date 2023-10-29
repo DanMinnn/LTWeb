@@ -5601,6 +5601,7 @@
     <Content Include="Views\DangKy\DangKy.cshtml" />
     <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
+    <Content Include="Views\DatSan\LichSuDatSan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

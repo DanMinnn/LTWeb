@@ -22,7 +22,7 @@ namespace TestTemplate.Controllers
         public ActionResult DangNhap(string user, string password)
         {
             //Check db
-            var khachHang = db.user_KhachHang.SingleOrDefault(m => m.username.ToLower() == user.ToLower() && m.password == password);
+            var khachHang = db.user_KhachHang.SingleOrDefault(m => m.username == user && m.password == password);
             var admin = db.QuanTriViens.SingleOrDefault(m => m.TenDangNhap.ToLower() == user.ToLower() && m.MatKhau == password);
 
             if (khachHang != null)

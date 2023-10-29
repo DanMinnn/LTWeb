@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TestTemplate.Models.LichDat>
+
+@{
+    ViewBag.Title = "Lịch sử đặt sân";
+    Layout = "~/Views/Shared/LayoutDatSan.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+    var kh = Session["user"] as TestTemplate.Models.user_KhachHang;
+}
+
+<h2 style="margin-left: 500px; margin-top: 50px; margin-bottom: 20px">Lịch sử đặt sân</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã đặt sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Khách hàng</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian bắt đầu</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian kết thúc</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10">Trạng thái</label>
+        </th>
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="padding-left: 10px">
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLichDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKhachHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.San.SoSan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>
