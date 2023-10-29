@@ -1,5 +1,8 @@
-﻿@model IEnumerable<TestTemplate.Models.NhanVien>
+﻿
 @using System.Globalization;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<TestTemplate.Models.NhanVien>
 
 @{
     ViewBag.Title = "DanhSachNhanVien";
@@ -43,7 +46,7 @@
             </td>
             <td>
                 @{
-                    DateTime dt = DateTime.ParseExact(item.NgaySinh.ToString(), "dd/MM/yyyy hh:mm:ss",CultureInfo.InvariantCulture);
+                    DateTime dt = DateTime.ParseExact(item.NgaySinh.ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
                     string s = dt.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                     @Html.DisplayFor(modelItem => s)
                 }
@@ -62,8 +65,8 @@
                 @Html.DisplayFor(modelItem => item.CCCD)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.C.tencs)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.C.tencs)
+                </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
                 @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |
@@ -71,5 +74,8 @@
             </td>
         </tr>
     }
-
 </table>
+
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachNhanVien", new { page = page }))
+</div>

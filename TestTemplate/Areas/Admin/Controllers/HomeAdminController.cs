@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using TestTemplate.Models;    
+using TestTemplate.Models;
+using PagedList;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
@@ -27,22 +28,35 @@ namespace TestTemplate.Areas.Admin.Controllers
             return RedirectToAction("DangNhap", "DangNhap", new { area = "" });
         }
 
-        public ActionResult DanhSachNhanVien()
+        public ActionResult DanhSachNhanVien(int? page)
         {
             List<NhanVien> danhSachNhanVien = db.NhanViens.ToList();
-            return View(danhSachNhanVien);
+
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(danhSachNhanVien.OrderBy(n => n.MaNV).ToPagedList(PageNumber, PageSize));
         }
 
-        public ActionResult DanhSachSan()
+        public ActionResult DanhSachSan(int? page)
         {
             List<San> dsSan = db.Sans.ToList();
-            return View(dsSan);
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(dsSan.OrderBy(n => n.MaSan).ToPagedList(PageNumber, PageSize));
         }
 
-        public ActionResult DanhSachLichDat()
+        public ActionResult DanhSachLichDat(int? page)
         {
             List<LichDat> dsLichDat = db.LichDats.ToList();
-            return View(dsLichDat);
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(dsLichDat.OrderBy(n => n.MaLichDat).ToPagedList(PageNumber, PageSize));
         }
 
     }

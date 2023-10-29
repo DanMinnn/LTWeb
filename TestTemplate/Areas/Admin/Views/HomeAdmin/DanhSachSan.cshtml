@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TestTemplate.Models.San>
+﻿@model PagedList.IPagedList<TestTemplate.Models.San>
+@using PagedList.Mvc;
+
 
 @{
     ViewBag.Title = "DanhSachSan";
@@ -22,23 +24,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoSan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaSan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaSan }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaSan }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaSan })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSan }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSan })
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachSan", new { page = page }))
+</div>

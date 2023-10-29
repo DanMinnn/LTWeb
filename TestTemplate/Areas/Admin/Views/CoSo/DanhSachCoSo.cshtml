@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TestTemplate.Models.CoSo>
+﻿@using PagedList.Mvc;
+
+@model PagedList.IPagedList<TestTemplate.Models.CoSo>
 
 @{
     ViewBag.Title = "DanhSachCoSo";
@@ -72,4 +74,6 @@
     }
 
 </table>
-
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachCoSo", new { page = page }))
+</div>

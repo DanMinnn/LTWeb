@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TestTemplate.Models.LichDat>
+﻿@model PagedList.IPagedList<TestTemplate.Models.LichDat>
+@using PagedList.Mvc;
+
 
 @{
     ViewBag.Title = "DanhSachLichDat";
@@ -29,39 +31,43 @@
             <label class="control-label col-md-10 ">Thời gian kết thúc</label>
         </th>
         <th>
-            <label class="control-label col-md-10 ">Giá tiền</label>
+            <label class="control-label col-md-10 ">Trạng thái</label>
         </th>
     </tr>
 
-@foreach (var item in Model) {
-<tr style="padding-left: 10px">
-    <td>
-        @Html.DisplayFor(modelItem => item.MaLichDat)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.user_KhachHang.HoTen)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.San.MaSan)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.San.MaDanhMuc)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TrangThai)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.MaLichDat }) |
-        @Html.ActionLink("Details", "Details", new { id = item.MaLichDat }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.MaLichDat })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr style="padding-left: 10px">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLichDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_KhachHang.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.San.MaSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.San.MaDanhMuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaLichDat }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaLichDat }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaLichDat })
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachLichDat", new { page = page }))
+</div>

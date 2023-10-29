@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestTemplate.Models;
+using PagedList;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
@@ -12,10 +13,14 @@ namespace TestTemplate.Areas.Admin.Controllers
         // GET: Admin/CoSo
         QLDSEntities db = new QLDSEntities();
 
-        public ActionResult DanhSachCoSo()
+        public ActionResult DanhSachCoSo(int? page)
         {
             List<CoSo> danhSachCoSo = db.CoSoes.ToList();
-            return View(danhSachCoSo);
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(danhSachCoSo.OrderBy(n => n.MaCS).ToPagedList(PageNumber, PageSize));
         }
 
         public ActionResult ThemMoi()
