@@ -14,6 +14,12 @@ namespace TestTemplate
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "DangNhap",
+               url: "login",
+               defaults: new { controller = "DangNhap", action = "DangNhap", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Home",
                 url: "home-main",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

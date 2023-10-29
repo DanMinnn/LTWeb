@@ -23,18 +23,25 @@ namespace TestTemplate.Controllers
         {
             //Check db
             var khachHang = db.user_KhachHang.SingleOrDefault(m => m.username.ToLower() == user.ToLower() && m.password == password);
-            if(khachHang != null)
+            var admin = db.QuanTriViens.SingleOrDefault(m => m.TenDangNhap.ToLower() == user.ToLower() && m.MatKhau == password);
+
+            if (khachHang != null)
             {
                 // tạo session và gán giá trị
                 Session["user"] = khachHang;
                 return RedirectToAction("Index", "Home");
+            }
+            else if(admin != null)
+            {
+                // tạo session và gán giá trị
+                Session["admin"] = admin;
+                return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
             }
             else
             {
                 TempData["error"] = "Tên đăng nhập hoặc mật khẩu không đúng !";
                 return View();
             }
-           
 
             //Check code
             //if (user.ToLower() == "admin" && password == "1234")
