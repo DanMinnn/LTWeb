@@ -17,28 +17,6 @@ namespace TestTemplate.Areas.Admin.Controllers
                 return View();
         }
 
-        //public ActionResult DangNhap()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult DangNhap(string user, string password)
-        //{
-        //    //Check db
-               
-        //    //Check code
-        //    if(user.ToLower() == "admin" && password == "1234")
-        //    {
-        //        Session["user"] = "admin"; // phiên làm việc;
-        //        return RedirectToAction("Index");
-        //    }    
-        //    else
-        //    {
-        //        TempData["error"] = "Tên đăng nhập hoặc mật khẩu không đúng !";
-        //        return View();
-        //    }
-        //}
-
         public ActionResult DangXuat()
         {
             //xóa session
@@ -48,13 +26,6 @@ namespace TestTemplate.Areas.Admin.Controllers
 
             return RedirectToAction("DangNhap", "DangNhap", new { area = "" });
         }
-
-        //public ActionResult DanhSachCoSo()
-        //{
-        //    //1. Lấy danh sách dữ liệu trong bảng
-        //    List<coso> danhSachCoSo = db.cosoes.ToList();  
-        //    return View(danhSachCoSo);
-        //}
 
         public ActionResult DanhSachNhanVien()
         {

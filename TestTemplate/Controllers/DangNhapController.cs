@@ -42,18 +42,6 @@ namespace TestTemplate.Controllers
                 TempData["error"] = "Tên đăng nhập hoặc mật khẩu không đúng !";
                 return View();
             }
-
-            //Check code
-            //if (user.ToLower() == "admin" && password == "1234")
-            //{
-            //    Session["user"] = "admin"; // phiên làm việc;
-            //    return RedirectToAction("Index");
-            //}
-            //else
-            //{
-            //    TempData["error"] = "Tên đăng nhập hoặc mật khẩu không đúng !";
-            //    return View();
-            //}
         }
 
         public ActionResult DangXuat()

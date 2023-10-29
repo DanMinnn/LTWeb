@@ -19,21 +19,35 @@
                 <a href="~/Tennis" class="nav-item nav-link @Html.Raw(ViewBag.active == 3 ? "active":"")">Tennis</a>
                 <a href="~/Basketball" class="nav-item nav-link @Html.Raw(ViewBag.active == 4 ? "active":"")">Bóng rổ</a>
                 <a href="~/Badminton" class="nav-item nav-link @Html.Raw(ViewBag.active == 5 ? "active":"")">Cầu lông</a>
+
             </div>
             @*@Html.ActionLink("Đăng nhập", "DangNhap", "HomeAdmin", "Admin", null)*@
-
             @if (Session["user"] != null)
             {
-                user_KhachHang khachHang = (user_KhachHang)Session["user"];
-                <span style="padding: 28px; color: black; ">Chào @khachHang.HoTen</span>
-                @*@Html.ActionLink("Đăng xuất", "DangXuat", "DangNhap");*@
-                <a href="@Url.Action("DangXuat", "DangNhap")" class="btn btn-danger px-3 d-none d-lg-flex ">Đăng xuất</a>
+                @*user_KhachHang khachHang = (user_KhachHang)Session["user"];
+            <span style="padding: 28px; color: black; ">Chào @khachHang.HoTen</span>
+            <a href="@Url.Action("DangXuat", "DangNhap")" class="btn btn-danger px-3 d-none d-lg-flex ">Đăng xuất</a>*@
+                    user_KhachHang khachHang = (user_KhachHang)Session["user"];
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chào @khachHang.HoTen
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @*<a class="dropdown-item" href="#">Action</a>*@
+                        <a class="dropdown-item" href="#">Lịch sử đặt sân</a>
+                        <a class="dropdown-item" href="@Url.Action("DangXuat", "DangNhap")">Đăng xuất</a>
+                    </div>
+                </div>
+
+
             }
             else
             {
                 <a href="@Url.Action("DangKy", "DangKy")" class="btn btn-danger px-4 d-none d-lg-flex" style="margin: 10px">Đăng ký</a>
                 <a href="@Url.Action("DangNhap", "DangNhap")" class="btn btn-primary px-3 d-none d-lg-flex ">Đăng nhập</a>
             }
+
         </div>
         <div>
 
