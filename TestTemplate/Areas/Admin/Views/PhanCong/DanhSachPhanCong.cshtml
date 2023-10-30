@@ -9,6 +9,9 @@
 }
 
 <h2>Danh sách phân công</h2>
+<p style="font-size: 16px; font-weight:bold; color:red">
+    <a href="@Url.Action("ThemMoi", "PhanCong", new { area = "Admin" })">Thêm mới</a>
+</p>
 
 <table class="table">
     <tr>
@@ -24,7 +27,9 @@
         <th>
             <label class="control-label col-md-10 ">Ghi chú</label>
         </th>
-        <th></th>
+        <th>
+            <label class="control-label col-md-10 ">Cập nhật</label>
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -34,13 +39,13 @@
                 @Html.DisplayFor(modelItem => item.MaNV)
             </td>
             <td>
-                @foreach(var nv in db.NhanViens.Where(n => n.MaNV == item.MaNV).ToList())
+                @foreach (var nv in db.NhanViens.Where(n => n.MaNV == item.MaNV).ToList())
                 {
                     @nv.HoTen
                 }
             </td>
             <td>
-               @foreach(var cs in db.CoSoes.Where(n => n.MaCS == item.MaCS).ToList())
+                @foreach (var cs in db.CoSoes.Where(n => n.MaCS == item.MaCS).ToList())
                 {
                     @cs.TenCS
                 }
@@ -49,12 +54,13 @@
                 @Html.DisplayFor(modelItem => item.GhiChu)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Chỉnh sửa", "CapNhatPC", new { id = item.MaCS }) |
+                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaCS })
             </td>
         </tr>
     }
+
+
 
 </table>
 <div class="dlink">
