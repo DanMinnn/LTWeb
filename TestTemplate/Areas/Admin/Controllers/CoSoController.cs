@@ -85,8 +85,6 @@ namespace TestTemplate.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);
             }
-            
-           
 
             var updateCoSo = db.CoSoes.Find(model_Edit.MaCS);
             try

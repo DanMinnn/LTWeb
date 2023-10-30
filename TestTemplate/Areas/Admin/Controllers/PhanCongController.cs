@@ -50,9 +50,9 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult CapNhatPC(string maPC)
+        public ActionResult CapNhatPC(string maNV, string maCS)
         {
-            var pc = db.PhanCongs.Find(maPC);
+            var pc = db.PhanCongs.Find(maNV, maCS);
             return View(pc);
         }
         [HttpPost]
@@ -64,7 +64,7 @@ namespace TestTemplate.Areas.Admin.Controllers
                 return View(pc);
             }
 
-            var updatePC = db.PhanCongs.Find(pc.MaCS);
+            var updatePC = db.PhanCongs.Find(pc.MaNV, pc.MaCS);
             try
             {
                 updatePC.MaNV = pc.MaNV;
