@@ -146,6 +146,7 @@
     <Compile Include="Controllers\DatSanController.cs" />
     <Compile Include="Controllers\FootballController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\TennisController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5575,6 +5576,10 @@
     <Content Include="Areas\Admin\Views\PhanCong\DanhSachPhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\CapNhatPC.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\CapNhatKhachHang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5618,6 +5623,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Default\" />
+    <Folder Include="Areas\Admin\Views\KhachHang\" />
+    <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
