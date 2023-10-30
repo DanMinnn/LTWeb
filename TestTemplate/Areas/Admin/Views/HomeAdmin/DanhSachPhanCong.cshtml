@@ -1,0 +1,62 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TestTemplate.Models.PhanCong>
+
+@{
+    ViewBag.Title = "Danh sách phân công";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+}
+
+<h2>Danh sách phân công</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã nhân viên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Họ tên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Tên cơ sở</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ghi chú</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="padding-left: 10px">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @foreach(var nv in db.NhanViens.Where(n => n.MaNV == item.MaNV).ToList())
+                {
+                    @nv.HoTen
+                }
+            </td>
+            <td>
+               @foreach(var cs in db.CoSoes.Where(n => n.MaCS == item.MaCS).ToList())
+                {
+                    @cs.TenCS
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachPhanCong", new { page = page }))
+</div>

@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f949879ba81d42298c0cc3b6f69e74f8" Name="Diagram1">
         <EntityTypeShape EntityType="QLDSModel.CoSo" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLDSModel.CTHD" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDSModel.CTHD" Width="1.5" PointX="4.625" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.DanhMucSan" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.HoaDon" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.LichDat" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />

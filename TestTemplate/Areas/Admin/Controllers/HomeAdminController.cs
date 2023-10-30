@@ -59,5 +59,14 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(dsLichDat.OrderBy(n => n.MaLichDat).ToPagedList(PageNumber, PageSize));
         }
 
+        public ActionResult DanhSachPhanCong(int? page)
+        {
+            List<PhanCong> dsPhanCongs = db.PhanCongs.ToList();
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(dsPhanCongs.OrderBy(n => n.MaCS).ToPagedList(PageNumber, PageSize));
+        }
     }
 }
