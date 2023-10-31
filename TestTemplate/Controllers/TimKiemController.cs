@@ -11,11 +11,12 @@ namespace TestTemplate.Controllers
     {
        QLDSEntities db = new QLDSEntities();
         // GET: TimKiem
-        public ActionResult KQTimKiem(string sTuKhoa)
+        public ActionResult KQTimKiem(string sTenCS, string sDiaChi)
         {
             // Tìm kiếm theo tên cơ sở
-            var lstCoSo = db.CoSoes.Where(n => n.TenCS.Contains(sTuKhoa));
-            return View(lstCoSo.OrderBy(n => n.TenCS));
+            var lstCoSo = db.CoSoes.Where(n => n.TenCS.Contains(sTenCS)
+            || n.DiaChi.Contains(sDiaChi));
+            return View(lstCoSo.OrderBy(n => n.DiaChi));
         }
     }
 }
