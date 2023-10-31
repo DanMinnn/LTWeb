@@ -9,20 +9,20 @@
           <Key>
             <PropertyRef Name="MaCS" />
           </Key>
-          <Property Name="MaCS" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaCS" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenCS" Type="nvarchar" MaxLength="100" />
           <Property Name="HinhAnh" Type="varchar" MaxLength="50" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
           <Property Name="LinkMap" Type="varchar" MaxLength="500" />
           <Property Name="MucGia" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaLoaiCS" Type="char" MaxLength="10" />
+          <Property Name="MaLoaiCS" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
             <PropertyRef Name="MaCTHD" />
           </Key>
-          <Property Name="MaCTHD" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaHoaDon" Type="char" MaxLength="10" />
+          <Property Name="MaCTHD" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaHoaDon" Type="varchar" MaxLength="10" />
           <Property Name="NgayDat" Type="date" />
           <Property Name="LoaiSan" Type="nvarchar" MaxLength="10" />
           <Property Name="SoSan" Type="int" />
@@ -34,27 +34,27 @@
           <Key>
             <PropertyRef Name="MaDanhMuc" />
           </Key>
-          <Property Name="MaDanhMuc" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaDanhMuc" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="LoaiSan" Type="nvarchar" MaxLength="30" />
-          <Property Name="MaCS" Type="char" MaxLength="10" />
+          <Property Name="MaCS" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaLichDat" Type="char" MaxLength="10" />
-          <Property Name="MaKhachHang" Type="char" MaxLength="10" />
-          <Property Name="MaNV" Type="char" MaxLength="10" />
+          <Property Name="MaHoaDon" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaLichDat" Type="varchar" MaxLength="10" />
+          <Property Name="MaKhachHang" Type="varchar" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
           <Property Name="NgayTao" Type="date" />
         </EntityType>
         <EntityType Name="LichDat">
           <Key>
             <PropertyRef Name="MaLichDat" />
           </Key>
-          <Property Name="MaLichDat" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaKhachHang" Type="char" MaxLength="10" />
-          <Property Name="MaSan" Type="char" MaxLength="10" />
+          <Property Name="MaLichDat" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKhachHang" Type="varchar" MaxLength="10" />
+          <Property Name="MaSan" Type="varchar" MaxLength="10" />
           <Property Name="ThoiGianBatDau" Type="datetime" />
           <Property Name="ThoiGianKetThuc" Type="datetime" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
@@ -63,29 +63,29 @@
           <Key>
             <PropertyRef Name="MaLoaiCS" />
           </Key>
-          <Property Name="MaLoaiCS" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaLoaiCS" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenLoaiCS" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="NgaySinh" Type="date" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
           <Property Name="SDT" Type="varchar" MaxLength="12" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="CCCD" Type="varchar" MaxLength="15" />
-          <Property Name="MaQTV" Type="char" MaxLength="20" />
+          <Property Name="MaQTV" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="PhanCong">
           <Key>
             <PropertyRef Name="MaNV" />
             <PropertyRef Name="MaCS" />
           </Key>
-          <Property Name="MaNV" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaCS" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaCS" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PhanQuyen">
@@ -93,15 +93,15 @@
             <PropertyRef Name="MaQTV" />
             <PropertyRef Name="MaQuyen" />
           </Key>
-          <Property Name="MaQTV" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="MaQuyen" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="MaQTV" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaQuyen" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="QuanTriVien">
           <Key>
             <PropertyRef Name="MaQTV" />
           </Key>
-          <Property Name="MaQTV" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MaQTV" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="LoaiQTV" Type="nvarchar" MaxLength="20" />
           <Property Name="TenDangNhap" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
@@ -110,17 +110,17 @@
           <Key>
             <PropertyRef Name="MaQuyen" />
           </Key>
-          <Property Name="MaQuyen" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="MaQuyen" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="TenQuyen" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="San">
           <Key>
             <PropertyRef Name="MaSan" />
           </Key>
-          <Property Name="MaSan" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaSan" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoSan" Type="int" />
           <Property Name="GiaSan" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaDanhMuc" Type="char" MaxLength="20" />
+          <Property Name="MaDanhMuc" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -136,8 +136,8 @@
           <Key>
             <PropertyRef Name="MaTK" />
           </Key>
-          <Property Name="MaTK" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaKH" Type="char" MaxLength="10" />
+          <Property Name="MaTK" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" />
           <Property Name="username" Type="varchar" MaxLength="12" />
           <Property Name="password" Type="varchar" MaxLength="12" />
         </EntityType>
@@ -145,7 +145,7 @@
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
@@ -401,13 +401,13 @@
           <Key>
             <PropertyRef Name="MaCS" />
           </Key>
-          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenCS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HinhAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LinkMap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="MucGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaLoaiCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaLoaiCS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSo__MaLoaiCS__398D8EEE" FromRole="CoSo" ToRole="LoaiCoSo" />
           <NavigationProperty Name="DanhMucSans" Relationship="Self.FK__DanhMucSan__MaCS__3C69FB99" FromRole="CoSo" ToRole="DanhMucSan" />
           <NavigationProperty Name="PhanCongs" Relationship="QLDSModel.FK_PhanCong_CoSo" FromRole="CoSo" ToRole="PhanCong" />
@@ -416,8 +416,8 @@
           <Key>
             <PropertyRef Name="MaCTHD" />
           </Key>
-          <Property Name="MaCTHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaCTHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NgayDat" Type="DateTime" Precision="0" />
           <Property Name="LoaiSan" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="SoSan" Type="Int32" />
@@ -430,9 +430,9 @@
           <Key>
             <PropertyRef Name="MaDanhMuc" />
           </Key>
-          <Property Name="MaDanhMuc" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaDanhMuc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LoaiSan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CoSo" Relationship="Self.FK__DanhMucSan__MaCS__3C69FB99" FromRole="DanhMucSan" ToRole="CoSo" />
           <NavigationProperty Name="Sans" Relationship="Self.FK__San__MaDanhMuc__3F466844" FromRole="DanhMucSan" ToRole="San" />
         </EntityType>
@@ -440,10 +440,10 @@
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaLichDat" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaLichDat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NgayTao" Type="DateTime" Precision="0" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaHoaDon__534D60F1" FromRole="HoaDon" ToRole="CTHD" />
           <NavigationProperty Name="user_KhachHang" Relationship="Self.FK__HoaDon__MaKhachH__4F7CD00D" FromRole="HoaDon" ToRole="user_KhachHang" />
@@ -454,9 +454,9 @@
           <Key>
             <PropertyRef Name="MaLichDat" />
           </Key>
-          <Property Name="MaLichDat" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaLichDat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ThoiGianBatDau" Type="DateTime" Precision="3" />
           <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="3" />
           <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -468,7 +468,7 @@
           <Key>
             <PropertyRef Name="MaLoaiCS" />
           </Key>
-          <Property Name="MaLoaiCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaLoaiCS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLoaiCS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CoSoes" Relationship="Self.FK__CoSo__MaLoaiCS__398D8EEE" FromRole="LoaiCoSo" ToRole="CoSo" />
         </EntityType>
@@ -476,14 +476,14 @@
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CCCD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaNV__5070F446" FromRole="NhanVien" ToRole="HoaDon" />
           <NavigationProperty Name="QuanTriVien" Relationship="Self.FK__NhanVien__MaQTV__4BAC3F29" FromRole="NhanVien" ToRole="QuanTriVien" />
           <NavigationProperty Name="PhanCongs" Relationship="QLDSModel.FK_PhanCong_NhanVien" FromRole="NhanVien" ToRole="PhanCong" />
@@ -493,8 +493,8 @@
             <PropertyRef Name="MaNV" />
             <PropertyRef Name="MaCS" />
           </Key>
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaCS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CoSo" Relationship="QLDSModel.FK_PhanCong_CoSo" FromRole="PhanCong" ToRole="CoSo" />
           <NavigationProperty Name="NhanVien" Relationship="QLDSModel.FK_PhanCong_NhanVien" FromRole="PhanCong" ToRole="NhanVien" />
@@ -504,8 +504,8 @@
             <PropertyRef Name="MaQTV" />
             <PropertyRef Name="MaQuyen" />
           </Key>
-          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QuanTriVien" Relationship="QLDSModel.FK_PhanQuyen_QuanTriVien" FromRole="PhanQuyen" ToRole="QuanTriVien" />
           <NavigationProperty Name="Quyen" Relationship="QLDSModel.FK_PhanQuyen_Quyen" FromRole="PhanQuyen" ToRole="Quyen" />
@@ -514,7 +514,7 @@
           <Key>
             <PropertyRef Name="MaQTV" />
           </Key>
-          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaQTV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LoaiQTV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -525,7 +525,7 @@
           <Key>
             <PropertyRef Name="MaQuyen" />
           </Key>
-          <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PhanQuyens" Relationship="QLDSModel.FK_PhanQuyen_Quyen" FromRole="Quyen" ToRole="PhanQuyen" />
         </EntityType>
@@ -533,10 +533,10 @@
           <Key>
             <PropertyRef Name="MaSan" />
           </Key>
-          <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoSan" Type="Int32" />
           <Property Name="GiaSan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaDanhMuc" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="MaDanhMuc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DanhMucSan" Relationship="Self.FK__San__MaDanhMuc__3F466844" FromRole="San" ToRole="DanhMucSan" />
           <NavigationProperty Name="LichDats" Relationship="Self.FK__LichDat__MaSan__45F365D3" FromRole="San" ToRole="LichDat" />
         </EntityType>
@@ -544,8 +544,8 @@
           <Key>
             <PropertyRef Name="MaTK" />
           </Key>
-          <Property Name="MaTK" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaTK" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="username" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -553,7 +553,7 @@
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="username" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

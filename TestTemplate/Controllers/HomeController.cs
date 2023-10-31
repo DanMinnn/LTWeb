@@ -41,7 +41,11 @@ namespace TestTemplate.Controllers
             //return RedirectToAction("DangNhap", "HomeAdmin", new { area = "Admin" });
         }
 
-        
-        
+        //Tạo trang ngăn chặn quyền truy cập
+        public ActionResult NotPermission()
+        {
+            return View();
+        }
+
     }
 }

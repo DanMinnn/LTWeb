@@ -19,6 +19,8 @@ namespace TestTemplate.Controllers
             return View();
         }
 
+       
+
         [HttpPost]
         public ActionResult DangNhap(string user, string password)
         {
