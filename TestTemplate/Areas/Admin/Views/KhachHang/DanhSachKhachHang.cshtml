@@ -36,13 +36,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.C.tencs)
-                </td>*@
+
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaKH}) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaKH }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaKH })
+                @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaKH}) |
+                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaKH })
             </td>
         </tr>
     }

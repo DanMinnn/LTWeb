@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TestTemplate.Models;
 
-namespace TestTemplate.Controllers
+namespace TestTemplate.Areas.Admin.Controllers
 {
     public class KhachHangController : Controller
     {
@@ -21,10 +21,6 @@ namespace TestTemplate.Controllers
             // Tạo biến số trang hiện tại
             int PageNumber = (page ?? 1);
             return View(danhSachKhachHang.OrderBy(n => n.MaKH).ToPagedList(PageNumber, PageSize));
-        }
-        public ActionResult ThemMoi()
-        {
-            return View();
         }
 
         public ActionResult CapNhat(string id)

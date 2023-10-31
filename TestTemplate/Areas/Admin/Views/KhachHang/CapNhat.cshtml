@@ -7,10 +7,11 @@
 
 <h2>Cập nhật</h2>
 
-@using (Html.BeginForm("CapNhatKhachHang", "KhachHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CapNhat", "KhachHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <!--lấy ra đối tượng cần cập nhật-->
     @Html.AntiForgeryToken()
+
 
     <div class="form-horizontal">
         <hr />
@@ -34,7 +35,7 @@
 
 
         <div class="form-group">
-            <label class="control-label col-md-10 " style="margin-top: 10px">Mức giá</label>
+            <label class="control-label col-md-10 " style="margin-top: 10px">Email</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })

@@ -5578,8 +5578,8 @@
     <Content Include="Areas\Admin\Views\PhanCong\CapNhatPC.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachKhachHang.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\CapNhatKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\DanhSachKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\CapNhat.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5624,7 +5624,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Default\" />
-    <Folder Include="Areas\Admin\Views\KhachHang\" />
     <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
