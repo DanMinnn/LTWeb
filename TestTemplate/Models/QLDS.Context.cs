@@ -39,5 +39,6 @@ namespace TestTemplate.Models
         public virtual DbSet<San> Sans { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<user_KhachHang> user_KhachHang { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

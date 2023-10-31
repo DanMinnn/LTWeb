@@ -18,6 +18,7 @@ namespace TestTemplate.Models
         public CoSo()
         {
             this.DanhMucSans = new HashSet<DanhMucSan>();
+            this.PhanCongs = new HashSet<PhanCong>();
         }
     
         public string MaCS { get; set; }
@@ -31,5 +32,7 @@ namespace TestTemplate.Models
         public virtual LoaiCoSo LoaiCoSo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhMucSan> DanhMucSans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanCong> PhanCongs { get; set; }
     }
 }

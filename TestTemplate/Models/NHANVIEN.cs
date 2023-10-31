@@ -18,6 +18,7 @@ namespace TestTemplate.Models
         public NhanVien()
         {
             this.HoaDons = new HashSet<HoaDon>();
+            this.PhanCongs = new HashSet<PhanCong>();
         }
     
         public string MaNV { get; set; }
@@ -32,5 +33,7 @@ namespace TestTemplate.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual QuanTriVien QuanTriVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanCong> PhanCongs { get; set; }
     }
 }

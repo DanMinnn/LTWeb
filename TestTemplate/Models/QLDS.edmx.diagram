@@ -29,6 +29,11 @@
         <AssociationConnector Association="QLDSModel.FK__LichDat__MaKhach__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="QLDSModel.FK__LichDat__MaSan__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="QLDSModel.FK__NhanVien__MaQTV__4BAC3F29" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLDSModel.sysdiagram" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="QLDSModel.FK_PhanCong_CoSo" />
+        <AssociationConnector Association="QLDSModel.FK_PhanCong_NhanVien" />
+        <AssociationConnector Association="QLDSModel.FK_PhanQuyen_QuanTriVien" />
+        <AssociationConnector Association="QLDSModel.FK_PhanQuyen_Quyen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
