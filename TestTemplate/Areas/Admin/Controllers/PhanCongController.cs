@@ -8,6 +8,7 @@ using PagedList;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "XemDanhSach")]
     public class PhanCongController : Controller
     {
         // GET: Admin/PhanCong
@@ -22,6 +23,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(dsPhanCongs.OrderBy(n => n.MaCS).ToPagedList(PageNumber, PageSize));
         }
 
+        [Authorize(Roles = "Them")]
         public ActionResult ThemMoi()
         {
             return View();

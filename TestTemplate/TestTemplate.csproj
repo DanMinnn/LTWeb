@@ -204,6 +204,9 @@
     <Compile Include="Models\San.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QLDS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TaiKhoan.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
