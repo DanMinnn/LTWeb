@@ -146,6 +146,7 @@
     <Compile Include="Controllers\DatSanController.cs" />
     <Compile Include="Controllers\FootballController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LichSuDatSanController.cs" />
     <Compile Include="Controllers\TennisController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +165,7 @@
     <Compile Include="Models\DatSan.cs" />
     <Compile Include="Models\HoaDon.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
+
     </Compile>
     <Compile Include="Models\LichDat.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
@@ -174,6 +176,7 @@
     <Compile Include="Models\NhanVien.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
+
     <Compile Include="Models\PhanCong.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
@@ -197,6 +200,7 @@
     </Compile>
     <Compile Include="Models\QuanTriVien.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
+
     </Compile>
     <Compile Include="Models\Quyen.cs">
       <DependentUpon>QLDS.tt</DependentUpon>
@@ -205,6 +209,7 @@
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+
       <DependentUpon>QLDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
@@ -5616,8 +5621,11 @@
     <Content Include="Views\DangKy\DangKy.cshtml" />
     <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
-    <Content Include="Views\DatSan\LichSuDatSan.cshtml" />
+
+    <Content Include="Views\LichSuDatSan\Index.cshtml" />
+
     <Content Include="Views\Home\NotPermission.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,7 +13,7 @@
     <p>Mã Sân: @Model.ma_San</p>
     <p>Thời gian trận đấu: @Model.ngayDatSan @Model.gioBatDau @Model.gioKetThuc</p>
 
-    <form method="post" action="@Url.Action("XacNhanDatSan", "datsan")">
+    <form method="post" action="@Url.Action("XacNhanDatSan", "DatSan")">
         @Html.HiddenFor(model => model.ma_San)
         @Html.HiddenFor(model => model.ngayDatSan)
         @Html.HiddenFor(model => model.gioBatDau)

@@ -9,6 +9,7 @@ using PagedList;
 namespace TestTemplate.Areas.Admin.Controllers
 {
     [Authorize(Roles = "XemDanhSach")]
+
     public class PhanCongController : Controller
     {
         // GET: Admin/PhanCong

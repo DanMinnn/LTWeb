@@ -58,7 +58,5 @@ namespace TestTemplate.Areas.Admin.Controllers
             int PageNumber = (page ?? 1);
             return View(dsLichDat.OrderBy(n => n.MaLichDat).ToPagedList(PageNumber, PageSize));
         }
-
-       
     }
 }

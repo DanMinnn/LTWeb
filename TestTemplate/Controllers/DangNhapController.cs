@@ -18,16 +18,13 @@ namespace TestTemplate.Controllers
 
             return View();
         }
-
-       
-
         [HttpPost]
         public ActionResult DangNhap(string user, string password)
         {
             //Check db
             var khachHang = db.user_KhachHang.SingleOrDefault(m => m.username == user && m.password == password);
-            var admin = db.QuanTriViens.SingleOrDefault(m => m.TenDangNhap == user && m.MatKhau == password);
 
+            var admin = db.QuanTriViens.SingleOrDefault(m => m.TenDangNhap == user && m.MatKhau == password);
             if (khachHang != null)
             {
                 // tạo session và gán giá trị
@@ -36,6 +33,8 @@ namespace TestTemplate.Controllers
             }
             else if(admin != null)
             {
+                // tạo session và gán giá trị
+                Session["admin"] = admin;
                 // Lấy ra quyền tương ứng với QTV
                 var lstQuyen = db.PhanQuyens.Where(n => n.MaQTV == admin.MaQTV);
                 // Duyệt list quyền
@@ -46,7 +45,6 @@ namespace TestTemplate.Controllers
                 }
                 Quyen = Quyen.Substring(0, Quyen.Length - 1); // Cắt dấu ","
                 PhanQuyen(admin.MaQTV, Quyen);
-
                 return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
             }
             else

@@ -1,0 +1,81 @@
+﻿@model List<TestTemplate.Models.LichDat>
+
+
+@{
+
+    ViewBag.Title = "Lịch sử đặt sân";
+    Layout = "~/Views/Shared/LayoutDatSan.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+    //var kh = Session["user"] as TestTemplate.Models.user_KhachHang;
+}
+
+
+<h2 style="margin-left: 500px; margin-top: 50px; margin-bottom: 20px">Lịch sử đặt sân</h2>
+<div>
+    <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã đặt sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian bắt đầu</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Thời gian kết thúc</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10">Trạng thái</label>
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="padding-left: 10px">
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td>
+                @{
+                    string maDanhMuc = item.San.MaDanhMuc;
+                    var danhMuc = db.DanhMucSans.FirstOrDefault(dm => dm.MaDanhMuc == maDanhMuc);
+                    if (danhMuc != null)
+                    {
+                        string maCoSo = danhMuc.MaCS;
+                        var coSo = db.CoSoes.FirstOrDefault(cs => cs.MaCS == maCoSo);
+                        if (coSo != null)
+                        {
+                            @coSo.TenCS
+                        }
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @if (item.TrangThai == "Chưa diễn ra")
+                {
+                    @Html.ActionLink("Huỷ sân", "HuySan", new { maLichDat = item.MaLichDat }, new { @class = "btn btn-danger" })
+
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+

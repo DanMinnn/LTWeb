@@ -17,7 +17,6 @@ namespace TestTemplate.Models
         public string MaNV { get; set; }
         public string MaCS { get; set; }
         public string GhiChu { get; set; }
-    
         public virtual CoSo CoSo { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }
