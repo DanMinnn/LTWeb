@@ -12,13 +12,12 @@ namespace TestTemplate.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PhanQuyen
+    public partial class sysdiagram
     {
-        public string MaQTV { get; set; }
-        public string MaQuyen { get; set; }
-        public string GhiChu { get; set; }
-    
-        public virtual QuanTriVien QuanTriVien { get; set; }
-        public virtual Quyen Quyen { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

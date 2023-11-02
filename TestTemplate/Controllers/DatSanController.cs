@@ -53,6 +53,7 @@ namespace TestTemplate.Controllers
 
                 return View(model);
             }
+            
             var danhMucSan = db.DanhMucSans.SingleOrDefault(dm => dm.MaDanhMuc == model.ma_danhmuc);
             if (danhMucSan != null)
             {
@@ -111,6 +112,90 @@ namespace TestTemplate.Controllers
                 db.SaveChanges();
                 TempData["ThongBaoDatSan"] = "Đặt sân thành công!";
             }
+
+            // kết hợp biến ngày đặt vs giờ đá
+            string batdau = model.ngayDatSan + " " + model.gioBatDau;
+            string ketthuc = model.ngayDatSan + " " + model.gioKetThuc;
+
+            DateTime gio_da = new DateTime();
+            DateTime gio_nghi = new DateTime();
+            DateTime.TryParse(batdau, out gio_da);
+            DateTime.TryParse(ketthuc, out gio_nghi);
+
+
+            string newMaSan = TimMaSanMoi();
+
+            LichDat ld_ms = new LichDat
+            {
+                MaLichDat = newMaSan,
+                MaKhachHang = model.ma_KH,
+                MaSan = model.ma_San,
+                ThoiGianBatDau = gio_da,
+                ThoiGianKetThuc = gio_nghi,
+                TrangThai = "Chưa đá"
+            };
+
+            db.LichDats.Add(ld_ms);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            db.SaveChanges();
+            TempData["ThongBaoDatSan"] = "Đặt sân thành công!";
+            // Chuyển hướng sau khi lưu vào cơ sở dữ liệu
+            return RedirectToAction("Index","Home");
+        }
+
+        // Phương thức để tạo mã sân mới
+        private string TimMaSanMoi()
+        {
+            string maxMaSan = db.LichDats.Max(ld => ld.MaLichDat);
+
+            if (string.IsNullOrEmpty(maxMaSan))
+            {
+                // Nếu không có mã sân nào hoặc mã sân không hợp lệ, gán "001" cho mã sân đầu tiên
+                return "001";
+            }
+            else
+            {
+                // Tạo mã sân mới bằng cách tăng thêm 1 số
+                int currentMaSanNumber = int.Parse(maxMaSan);
+                currentMaSanNumber++;
+                return currentMaSanNumber.ToString("D3");
+            }
+        }
+
+
+        private string TimMaSanTrong(DateTime gioBatDau, DateTime gioKetThuc, string ma_danhmuc)
+        {
+            // Lấy danh sách tất cả các sân trong mã danh mục
+            var sans = db.Sans.Where(s => s.MaDanhMuc == ma_danhmuc).ToList();
+
+            string maSanTrong = null; // Mã sân mặc định là null
+            bool coSanTrong = false; // Biến đánh dấu xem có sân nào thỏa mãn không
+
+            foreach (var san in sans)
+            {
+                bool sanTrong = true;
+
+                // Lấy tất cả lịch đặt của sân này
+                var lichDats = db.LichDats.Where(lich => lich.MaSan == san.MaSan).ToList();
+
+                // Kiểm tra xem có bất kỳ trùng lịch nào không
+                foreach (var lich in lichDats)
+                {
+                    if (KiemTraTrungLich(lich, gioBatDau, gioKetThuc))
+                    {
+                        sanTrong = false;
+                        break;
+                    }
+                }
+
+                if (sanTrong)
+                {
+                    maSanTrong = san.MaSan; // Lưu lại mã sân trống
+                    coSanTrong = true; // Đánh dấu có sân thỏa mãn
+                    break; // Thoát khỏi vòng lặp khi tìm thấy sân trống
+                }
+            }
             // nếu không có lịch đặt trùng nào thì tạo lịch đặt mới 
             else { 
             string newMaSan = TimMaSanMoi();
@@ -152,6 +237,12 @@ namespace TestTemplate.Controllers
                 currentMaSanNumber++;
                 return currentMaSanNumber.ToString("D3");
             }
+            if (coSanTrong)
+            {
+                return maSanTrong; // Trả về mã sân trống
+            }
+
+            return null; // Không có sân nào trống
         }
 
 
@@ -231,5 +322,14 @@ namespace TestTemplate.Controllers
             return true; // Thời gian hợp lệ.
         }
 
+        public ActionResult LichSuDatSan(DatSan model)
+        {
+
+            user_KhachHang khachHang = (user_KhachHang)Session["user"];
+
+            List<LichDat> lichDats = db.LichDats.Where(ld => ld.MaKhachHang == khachHang.MaKH).ToList();
+
+            return View(lichDats);
+        }
     }
 }

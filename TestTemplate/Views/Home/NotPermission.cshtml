@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "NotPermission";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Bạn không có quyền truy cập</h2>
+<a href="@Url.Action("Index","HomeAdmin", new {area = "Admin" })">Quay lại</a>
+
