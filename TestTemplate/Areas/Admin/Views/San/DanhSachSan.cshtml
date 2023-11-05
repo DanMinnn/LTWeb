@@ -8,7 +8,9 @@
 }
 
 <h2>Danh sách sân </h2>
-
+<p>
+    <a href="@Url.Action("ThemMoi", "San", new { area = "Admin" })">Thêm mới</a>
+</p>
 
 <table class="table">
     <tr>
@@ -37,9 +39,8 @@
                 @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaSan }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaSan })
+                @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaSan }) |
+                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaSan })
             </td>
         </tr>
     }

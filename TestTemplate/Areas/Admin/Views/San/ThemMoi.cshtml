@@ -1,0 +1,57 @@
+﻿@model TestTemplate.Models.San
+@{
+    ViewBag.Title = "Thêm sân";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+}
+
+<h2>Thêm</h2>
+
+@using (Html.BeginForm("ThemMoi", "San", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-10 " style="margin-top: 10px">Mã sân</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-10 " style="margin-top: 10px">Số sân</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoSan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-10 " style="margin-top: 10px">Giá sân</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaSan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GiaSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-10 " style="margin-top: 10px">Danh mục sân</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DanhMucSan.LoaiSan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DanhMucSan.LoaiSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
