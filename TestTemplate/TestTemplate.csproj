@@ -137,6 +137,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CoSoController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongController.cs" />
     <Compile Include="Controllers\BadmintonController.cs" />
     <Compile Include="Controllers\BasketballController.cs" />
@@ -5579,6 +5581,11 @@
     <Content Include="Areas\Admin\Views\PhanCong\DanhSachPhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\CapNhatPC.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\DanhSachKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\CapNhat.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\DanhSachNhanVien.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\CapNhat.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
