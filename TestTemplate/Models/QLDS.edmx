@@ -45,7 +45,7 @@
           <Property Name="MaLichDat" Type="varchar" MaxLength="10" />
           <Property Name="MaKhachHang" Type="varchar" MaxLength="10" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" />
-          <Property Name="NgayTao" Type="date" />
+          <Property Name="NgayTao" Type="datetime" />
         </EntityType>
         <EntityType Name="LichDat">
           <Key>
@@ -442,7 +442,7 @@
           <Property Name="MaLichDat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NgayTao" Type="DateTime" Precision="0" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaHoaDon__534D60F1" FromRole="HoaDon" ToRole="CTHD" />
           <NavigationProperty Name="user_KhachHang" Relationship="Self.FK__HoaDon__MaKhachH__4F7CD00D" FromRole="HoaDon" ToRole="user_KhachHang" />
           <NavigationProperty Name="LichDat" Relationship="Self.FK__HoaDon__MaLichDa__4E88ABD4" FromRole="HoaDon" ToRole="LichDat" />
