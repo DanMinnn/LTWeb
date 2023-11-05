@@ -8,6 +8,7 @@ using PagedList;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "XemDanhSach")]
     public class CoSoController : Controller
     {
         // GET: Admin/CoSo
@@ -23,6 +24,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(danhSachCoSo.OrderBy(n => n.MaCS).ToPagedList(PageNumber, PageSize));
         }
 
+        [Authorize(Roles = "Them")]
         public ActionResult ThemMoi()
         {
             return View();
@@ -61,6 +63,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Sua")]
         public ActionResult CapNhat(string id)
         {
             var model_Edit = db.CoSoes.Find(id);
@@ -106,6 +109,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Xoa")]
         public ActionResult Xoa(string id)
         {
             var model = db.CoSoes.Find(id);

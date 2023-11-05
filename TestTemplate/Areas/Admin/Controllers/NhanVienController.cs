@@ -8,6 +8,7 @@ using PagedList;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "XemDanhSach")]
     public class NhanVienController : Controller
     {
         QLDSEntities db = new QLDSEntities();
@@ -22,6 +23,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(danhSachNhanVien.OrderBy(n => n.MaNV).ToPagedList(PageNumber, PageSize));
         }
 
+        [Authorize(Roles = "Them")]
         public ActionResult ThemMoi()
         {
             return View();
@@ -53,6 +55,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Sua")]
         public ActionResult CapNhat(string id)
         {
             var model_Edit = db.NhanViens.Find(id);
@@ -89,6 +92,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Xoa")]
         public ActionResult Xoa(string id)
         {
             var model = db.NhanViens.Find(id);

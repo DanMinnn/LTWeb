@@ -8,6 +8,7 @@ using TestTemplate.Models;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "XemDanhSach")]
     public class KhachHangController : Controller
     {
         // GET: Admin/KhachHang
@@ -23,6 +24,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(danhSachKhachHang.OrderBy(n => n.MaKH).ToPagedList(PageNumber, PageSize));
         }
 
+        [Authorize(Roles = "Sua")]
         public ActionResult CapNhat(string id)
         {
             var model_Edit = db.user_KhachHang.Find(id);
@@ -57,6 +59,8 @@ namespace TestTemplate.Areas.Admin.Controllers
                 return View(model_Edit);
             }
         }
+
+        [Authorize(Roles = "Xoa")]
 
         public ActionResult Xoa(string id)
         {

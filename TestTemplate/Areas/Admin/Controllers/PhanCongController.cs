@@ -53,6 +53,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Sua")]
         public ActionResult CapNhatPC(string maNV, string maCS)
         {
             var pc = db.PhanCongs.Find(maNV, maCS);
@@ -83,6 +84,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Xoa")]
         public ActionResult Xoa(string id)
         {
             var model = db.PhanCongs.Find(id);
