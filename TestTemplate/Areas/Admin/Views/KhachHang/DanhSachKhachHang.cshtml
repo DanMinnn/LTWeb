@@ -8,7 +8,7 @@
     Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
 }
 
-<h2>Danh sách khách hàng</h2>
+<h2  style="margin-left: 450px">Danh sách khách hàng</h2>
 
 <table class="table">
     <tr>
@@ -27,7 +27,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td style="padding: 0px 30px">
                 @Html.DisplayFor(modelItem => item.HoTen)
             </td>
             <td>
@@ -38,6 +38,8 @@
             </td>
 
             <td>
+                @Html.ActionLink("Xem lịch đặt", "DanhSachLichDat", new { id = item.MaKH }) |
+                @Html.ActionLink("Xem hóa đơn", "HoaDon", new { id = item.MaKH }) |
                 @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaKH }) |
                 @Html.ActionLink("Xóa", "Xoa", new { id = item.MaKH })
             </td>
@@ -47,3 +49,4 @@
 
 <div class="dlink">
     @Html.PagedListPager(Model, page => Url.Action("DanhSachKhachHang", new { page = page }))
+</div>

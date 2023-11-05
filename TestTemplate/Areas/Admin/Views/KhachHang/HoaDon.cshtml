@@ -1,0 +1,59 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<TestTemplate.Models.HoaDon>
+
+@{
+    ViewBag.Title = "HoaDon";
+Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Hóa đơn</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã hóa đơn</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã lịch đặt</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã khách hàng</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã nhân viên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ngày tạo</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaHoaDon)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaLichDat)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("HoaDon", new { page = page }))
+</div>

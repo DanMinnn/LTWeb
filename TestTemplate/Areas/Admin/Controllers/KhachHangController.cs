@@ -69,5 +69,31 @@ namespace TestTemplate.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("DanhSachKhachHang");
         }
+
+        public ActionResult HoaDon(string id, int? page)
+        {
+            List<HoaDon> dsHoaDon = db.HoaDons.ToList();
+            int PageSize = 6;
+            int PageNumber = (page ?? 1);
+            return View(dsHoaDon.OrderBy(n => n.MaHoaDon).ToPagedList(PageNumber, PageSize));
+        }
+
+        public ActionResult CTHD(string id, int? page)
+        {
+            List<CTHD> dsCTHDs = db.CTHDs.ToList();
+            int PageSize = 6;
+            int PageNumber = (page ?? 1);
+            return View(dsCTHDs.OrderBy(n => n.MaCTHD).ToPagedList(PageNumber, PageSize));
+        }
+
+        public ActionResult DanhSachLichDat(string id, int? page)
+        {
+            List<LichDat> dsLichDat = db.LichDats.ToList();
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            // Tạo biến số trang hiện tại
+            int PageNumber = (page ?? 1);
+            return View(dsLichDat.OrderBy(n => n.MaLichDat).ToPagedList(PageNumber, PageSize));
+        }
     }
 }

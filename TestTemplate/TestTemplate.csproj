@@ -5586,6 +5586,9 @@
     <Content Include="Areas\Admin\Views\NhanVien\DanhSachNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\CapNhat.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\HoaDon.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\CTHD.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\DanhSachLichDat.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
