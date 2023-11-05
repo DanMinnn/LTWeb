@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
@@ -27,8 +27,7 @@
           <Property Name="LoaiSan" Type="nvarchar" MaxLength="10" />
           <Property Name="SoSan" Type="int" />
           <Property Name="SoGioDat" Type="float" />
-          <Property Name="SoLuongDat" Type="int" />
-          <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GiaTien" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DanhMucSan">
           <Key>
@@ -422,9 +421,8 @@
           <Property Name="LoaiSan" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="SoSan" Type="Int32" />
           <Property Name="SoGioDat" Type="Double" />
-          <Property Name="SoLuongDat" Type="Int32" />
-          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="HoaDon" Relationship="Self.FK__CTHD__MaHoaDon__534D60F1" FromRole="CTHD" ToRole="HoaDon" />
+          <Property Name="GiaTien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DanhMucSan">
           <Key>
@@ -835,15 +833,14 @@
           <EntitySetMapping Name="CTHDs">
             <EntityTypeMapping TypeName="QLDSModel.CTHD">
               <MappingFragment StoreEntitySet="CTHD">
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
                 <ScalarProperty Name="MaCTHD" ColumnName="MaCTHD" />
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
                 <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
                 <ScalarProperty Name="LoaiSan" ColumnName="LoaiSan" />
                 <ScalarProperty Name="SoSan" ColumnName="SoSan" />
                 <ScalarProperty Name="SoGioDat" ColumnName="SoGioDat" />
-                <ScalarProperty Name="SoLuongDat" ColumnName="SoLuongDat" />
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhMucSans">
