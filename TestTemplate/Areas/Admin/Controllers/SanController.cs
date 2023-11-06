@@ -8,6 +8,7 @@ using TestTemplate.Models;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "XemDanhSach")]
     public class SanController : Controller
     {
         QLDSEntities db = new QLDSEntities();
@@ -22,11 +23,13 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(danhSachSan.OrderBy(n => n.MaSan).ToPagedList(PageNumber, PageSize));
         }
 
+        [Authorize(Roles = "Them")]
         public ActionResult ThemMoi()
         {
             return View();
         }
 
+        [Authorize(Roles = "Sua")]
         public ActionResult CapNhat(string id)
         {
             var model_Edit = db.Sans.Find(id);
@@ -41,8 +44,6 @@ namespace TestTemplate.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);
             }
-
-
 
             var updateSan = db.Sans.Find(model_Edit.MaSan);
             try
@@ -61,6 +62,7 @@ namespace TestTemplate.Areas.Admin.Controllers
             }
         }
 
+        [Authorize(Roles = "Xoa")]
         public ActionResult Xoa(string id)
         {
             var model = db.Sans.Find(id);
