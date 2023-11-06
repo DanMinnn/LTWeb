@@ -27,17 +27,6 @@ namespace TestTemplate.Areas.Admin.Controllers
 
             return RedirectToAction("DangNhap", "DangNhap", new { area = "" });
         }
-
-        public ActionResult DanhSachSan(int? page)
-        {
-            List<San> dsSan = db.Sans.ToList();
-            //Tạo biến số sản phẩm trên trang
-            int PageSize = 6;
-            // Tạo biến số trang hiện tại
-            int PageNumber = (page ?? 1);
-            return View(dsSan.OrderBy(n => n.MaSan).ToPagedList(PageNumber, PageSize));
-        }
-
         public ActionResult DanhSachLichDat(int? page)
         {
             List<LichDat> dsLichDat = db.LichDats.ToList();

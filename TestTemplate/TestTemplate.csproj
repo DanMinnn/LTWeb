@@ -5567,8 +5567,6 @@
     <Content Include="Areas\ContentAdmin\plugins\typeahedjs\dist\nfl.json" />
     <Content Include="Areas\ContentAdmin\plugins\typeahedjs\dist\nhl.json" />
     <Content Include="Areas\Admin\Views\CoSo\DanhSachCoSo.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachNhanVien.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachSan.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\CoSo\CapNhat.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\DanhSachLichDat.cshtml" />

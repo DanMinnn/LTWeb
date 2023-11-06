@@ -41,8 +41,6 @@ namespace TestTemplate.Areas.Admin.Controllers
                 return View(model_Edit);
             }
 
-
-
             var updateKhachHang = db.user_KhachHang.Find(model_Edit.MaKH);
             try
             {
