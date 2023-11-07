@@ -1,0 +1,75 @@
+﻿@using PagedList.Mvc
+
+@model PagedList.IPagedList<TestTemplate.Models.San>
+
+@{
+    ViewBag.Title = "DanhSachSancuaCoSo";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+
+
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Tên Cơ Sở</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Số Sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Giá Sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Loại Sân</label>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{
+                    string maDanhMuc = item.MaDanhMuc;
+                    var danhMuc = db.DanhMucSans.FirstOrDefault(c => c.MaDanhMuc == maDanhMuc);
+                    if (danhMuc != null)
+                    {
+                        string maCoSo = danhMuc.MaCS;
+                        var coSo = db.CoSoes.FirstOrDefault(cs => cs.MaCS == maCoSo);
+                        if (coSo != null)
+                        {
+                            @coSo.TenCS
+                        }
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaSan)
+            </td>
+            <td>
+                @{
+                    string mdm = item.MaDanhMuc;
+                    var dm = db.DanhMucSans.FirstOrDefault(c => c.MaDanhMuc == maDanhMuc);
+                    if (danhMuc != null)
+                    {
+                        @dm.LoaiSan
+
+                    }
+                }
+            </td>
+
+
+            <td>
+            </td>
+        </tr>
+    }
+</table>
+<div class="dlink">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachSan", new { page = page }))
+</div>
