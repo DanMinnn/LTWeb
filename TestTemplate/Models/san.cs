@@ -22,7 +22,7 @@ namespace TestTemplate.Models
     
         public string MaSan { get; set; }
         public Nullable<int> SoSan { get; set; }
-        public string GiaSan { get; set; }
+        public Nullable<double> GiaSan { get; set; }
         public string MaDanhMuc { get; set; }
     
         public virtual DanhMucSan DanhMucSan { get; set; }

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ThongKe";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@section ThongKe{
+    <div class="col-lg-3 col-sm-6">
+        <div class="card gradient-1">
+            <div class="card-body">
+                <h3 class="card-title text-white">Số sân đã đặt</h3>
+                <div class="d-inline-block">
+                    <h2 class="text-white">@ViewBag.sanDaDat</h2>
+                </div>
+                <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card gradient-2">
+            <div class="card-body">
+                <h3 class="card-title text-white">Doanh thu</h3>
+                <div class="d-inline-block">
+                    @{ decimal TongDoanhThu = decimal.Parse(ViewBag.TongDoanhThu.ToString());}
+                    <h2 class="text-white">@TongDoanhThu.ToString("#,##")</h2>
+                </div>
+                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card gradient-3">
+            <div class="card-body">
+                <h3 class="card-title text-white">Khách hàng</h3>
+                <div class="d-inline-block">
+                    <h2 class="text-white">@ViewBag.SLKH</h2>
+                </div>
+                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card gradient-4">
+            <div class="card-body">
+                <h3 class="card-title text-white">Mức độ hài lòng</h3>
+                <div class="d-inline-block">
+                    <h2 class="text-white">50%</h2>
+                </div>
+                <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
+            </div>
+        </div>
+    </div>
+
+}
+

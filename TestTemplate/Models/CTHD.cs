@@ -20,7 +20,7 @@ namespace TestTemplate.Models
         public string LoaiSan { get; set; }
         public Nullable<int> SoSan { get; set; }
         public Nullable<double> SoGioDat { get; set; }
-        public string GiaTien { get; set; }
+        public Nullable<double> GiaTien { get; set; }
     
         public virtual HoaDon HoaDon { get; set; }
     }

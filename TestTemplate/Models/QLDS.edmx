@@ -27,7 +27,7 @@
           <Property Name="LoaiSan" Type="nvarchar" MaxLength="10" />
           <Property Name="SoSan" Type="int" />
           <Property Name="SoGioDat" Type="float" />
-          <Property Name="GiaTien" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaTien" Type="float" />
         </EntityType>
         <EntityType Name="DanhMucSan">
           <Key>
@@ -46,6 +46,7 @@
           <Property Name="MaKhachHang" Type="varchar" MaxLength="10" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" />
           <Property Name="NgayTao" Type="datetime" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LichDat">
           <Key>
@@ -118,7 +119,7 @@
           </Key>
           <Property Name="MaSan" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoSan" Type="int" />
-          <Property Name="GiaSan" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaSan" Type="float" />
           <Property Name="MaDanhMuc" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -199,18 +200,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HoaDon__MaLichDa__4E88ABD4">
-          <End Role="LichDat" Type="Self.LichDat" Multiplicity="0..1" />
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LichDat">
-              <PropertyRef Name="MaLichDat" />
-            </Principal>
-            <Dependent Role="HoaDon">
-              <PropertyRef Name="MaLichDat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__HoaDon__MaNV__5070F446">
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -220,6 +209,18 @@
             </Principal>
             <Dependent Role="HoaDon">
               <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HoaDon__TrangTha__4E88ABD4">
+          <End Role="LichDat" Type="Self.LichDat" Multiplicity="0..1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LichDat">
+              <PropertyRef Name="MaLichDat" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaLichDat" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -351,12 +352,12 @@
             <End Role="user_KhachHang" EntitySet="user_KhachHang" />
             <End Role="HoaDon" EntitySet="HoaDon" />
           </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaLichDa__4E88ABD4" Association="Self.FK__HoaDon__MaLichDa__4E88ABD4">
-            <End Role="LichDat" EntitySet="LichDat" />
-            <End Role="HoaDon" EntitySet="HoaDon" />
-          </AssociationSet>
           <AssociationSet Name="FK__HoaDon__MaNV__5070F446" Association="Self.FK__HoaDon__MaNV__5070F446">
             <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="HoaDon" EntitySet="HoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__TrangTha__4E88ABD4" Association="Self.FK__HoaDon__TrangTha__4E88ABD4">
+            <End Role="LichDat" EntitySet="LichDat" />
             <End Role="HoaDon" EntitySet="HoaDon" />
           </AssociationSet>
           <AssociationSet Name="FK__LichDat__MaKhach__44FF419A" Association="Self.FK__LichDat__MaKhach__44FF419A">
@@ -422,7 +423,7 @@
           <Property Name="SoSan" Type="Int32" />
           <Property Name="SoGioDat" Type="Double" />
           <NavigationProperty Name="HoaDon" Relationship="Self.FK__CTHD__MaHoaDon__534D60F1" FromRole="CTHD" ToRole="HoaDon" />
-          <Property Name="GiaTien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaTien" Type="Double" />
         </EntityType>
         <EntityType Name="DanhMucSan">
           <Key>
@@ -447,6 +448,7 @@
           <NavigationProperty Name="user_KhachHang" Relationship="Self.FK__HoaDon__MaKhachH__4F7CD00D" FromRole="HoaDon" ToRole="user_KhachHang" />
           <NavigationProperty Name="LichDat" Relationship="Self.FK__HoaDon__MaLichDa__4E88ABD4" FromRole="HoaDon" ToRole="LichDat" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK__HoaDon__MaNV__5070F446" FromRole="HoaDon" ToRole="NhanVien" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LichDat">
           <Key>
@@ -533,7 +535,7 @@
           </Key>
           <Property Name="MaSan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoSan" Type="Int32" />
-          <Property Name="GiaSan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaSan" Type="Double" />
           <Property Name="MaDanhMuc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DanhMucSan" Relationship="Self.FK__San__MaDanhMuc__3F466844" FromRole="San" ToRole="DanhMucSan" />
           <NavigationProperty Name="LichDats" Relationship="Self.FK__LichDat__MaSan__45F365D3" FromRole="San" ToRole="LichDat" />
@@ -855,6 +857,7 @@
           <EntitySetMapping Name="HoaDons">
             <EntityTypeMapping TypeName="QLDSModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
                 <ScalarProperty Name="MaLichDat" ColumnName="MaLichDat" />
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
