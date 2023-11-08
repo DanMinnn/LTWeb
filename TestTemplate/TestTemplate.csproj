@@ -141,7 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TimKiemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TimKiem_AdminController.cs" />
     <Compile Include="Controllers\BadmintonController.cs" />
     <Compile Include="Controllers\BasketballController.cs" />
     <Compile Include="Controllers\CoSoController.cs" />
@@ -5593,7 +5593,7 @@
     <Content Include="Areas\Admin\Views\San\DanhSachSan.cshtml" />
     <Content Include="Areas\Admin\Views\San\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\San\CapNhat.cshtml" />
-    <Content Include="Areas\Admin\Views\TimKiem\TimKiem.cshtml" />
+    <Content Include="Areas\Admin\Views\TimKiem_Admin\TimKiem.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

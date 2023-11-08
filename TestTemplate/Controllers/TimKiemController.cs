@@ -15,7 +15,7 @@ namespace TestTemplate.Controllers
         {
             // Tìm kiếm theo tên cơ sở
             var lstCoSo = db.CoSoes.Where(n => n.TenCS.Contains(sTenCS)
-            || n.DiaChi.Contains(sDiaChi));
+            && n.DiaChi.Contains(sDiaChi));
             return View(lstCoSo.OrderBy(n => n.DiaChi));
         }
     }

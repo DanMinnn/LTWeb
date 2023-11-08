@@ -7,7 +7,7 @@ using TestTemplate.Models;
 
 namespace TestTemplate.Areas.Admin.Controllers
 {
-    public class TimKiemController : Controller
+    public class TimKiem_AdminController : Controller
     {
         // GET: Admin/TimKiem
         QLDSEntities db = new QLDSEntities();
