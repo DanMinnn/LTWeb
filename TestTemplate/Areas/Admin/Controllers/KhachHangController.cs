@@ -30,7 +30,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult CapNhat(user_KhachHang model_Edit, HttpPostedFileBase fileAnh)
+        public ActionResult CapNhat(user_KhachHang model_Edit)
         {
             if (string.IsNullOrEmpty(model_Edit.HoTen) == true ||
                     string.IsNullOrEmpty(model_Edit.SoDienThoai) == true || string.IsNullOrEmpty(model_Edit.Email) == true)

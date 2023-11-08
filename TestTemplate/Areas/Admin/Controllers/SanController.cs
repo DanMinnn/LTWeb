@@ -26,6 +26,29 @@ namespace TestTemplate.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult ThemMoi(San s)
+        {
+            if (string.IsNullOrEmpty(s.MaSan) == true ||
+                string.IsNullOrEmpty(s.GiaSan) == true ||
+                string.IsNullOrEmpty(s.DanhMucSan.LoaiSan) == true)
+            {
+                ModelState.AddModelError("", "Thiếu thông tin");
+                return View(s);
+            }
+
+            try
+            {
+                db.Sans.Add(s);
+                db.SaveChanges();
+                return RedirectToAction("DanhSachSan");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(s);
+            }
+        }
 
         public ActionResult CapNhat(string id)
         {
@@ -44,12 +67,12 @@ namespace TestTemplate.Areas.Admin.Controllers
 
 
 
-            var updateKhachHang = db.Sans.Find(model_Edit.MaSan);
+            var updateSan = db.Sans.Find(model_Edit.MaSan);
             try
             {
-                //updateKhachHang.HoTen = model_Edit.SoSan;
-                updateKhachHang.GiaSan = model_Edit.GiaSan;
-                updateKhachHang.DanhMucSan.LoaiSan = model_Edit.DanhMucSan.LoaiSan;
+                updateSan.SoSan = model_Edit.SoSan;
+                updateSan.GiaSan = model_Edit.GiaSan;
+                updateSan.DanhMucSan.LoaiSan = model_Edit.DanhMucSan.LoaiSan;
 
                 db.SaveChanges();
                 return RedirectToAction("DanhSachSan");
