@@ -1,0 +1,158 @@
+﻿@model TestTemplate.Models.TimModel
+@using System.Globalization
+
+@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+@*<br />
+<p>Kết quả tìm kiếm cho "@Model.sTuKhoa"</p>
+<br />*@
+
+<h3>Cơ sở: </h3>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Tên cơ sở</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Hình ảnh</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Địa chỉ</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Maps</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Loại sân</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CoSo)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCS)
+            </td>
+            <td>
+                <img class="img-responsive" src="@Url.Content("~/Content/img/" + item.HinhAnh)" alt="" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td style="word-break: break-word;">
+                @Html.DisplayFor(modelItem => item.LinkMap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiCoSo.TenLoaiCS)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "CapNhat", "CoSo", new { id = item.MaCS }, null) |
+                @Html.ActionLink("Xóa", "Xoa", "CoSo", new { id = item.MaCS }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+
+<h3>Nhân viên: </h3>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Tên nhân viên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ngày sinh</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Giới tính</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Số điện thoại</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Email</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">CCCD</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.NhanVien)
+    {
+        <tr>
+            <td style="padding: 0px 25px">
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td style="padding: 0px 25px">
+                @{
+                    DateTime dt = DateTime.ParseExact(item.NgaySinh.ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+                    string s = dt.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    @Html.DisplayFor(modelItem => s)
+                }
+            </td>
+            <td style="padding: 0px 35px">
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td style="padding: 0px 30px">
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCCD)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "CapNhat", "NhanVien", new { id = item.MaNV }, null) |
+                @Html.ActionLink("Xóa", "Xoa", "NhanVien", new { id = item.MaNV }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<h3>Khách hàng: </h3>
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Họ tên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-13 ">Số điện thoại</label>
+        </th>
+        <th>
+            <label class="control-label col-md-13 ">Email</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.KhachHang)
+    {
+        <tr>
+            <td style="padding: 0px 30px">
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.ActionLink("Xem lịch đặt", "DanhSachLichDat", "KhachHang", new { id = item.MaKH }, null) |
+                @Html.ActionLink("Xem hóa đơn", "HoaDon", "KhachHang", new { id = item.MaKH }, null) |
+                @Html.ActionLink("Cập nhật", "CapNhat", "KhachHang", new { id = item.MaKH }, null) |
+                @Html.ActionLink("Xóa", "Xoa", "KhachHang", new { id = item.MaKH }, null)
+            </td>
+        </tr>
+    }
+</table>
+
