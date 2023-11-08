@@ -50,5 +50,17 @@ namespace TestTemplate.Controllers
                 
         }
 
+        public ActionResult XemHoaDon(string maLichDat)
+        {
+            List<HoaDon> lstHD = db.HoaDons.Where(c => c.MaLichDat == maLichDat).ToList();
+            return View(lstHD);
+        }
+
+        public ActionResult CTHD()
+        {
+            List<CTHD> dsCTHDs = db.CTHDs.ToList();
+            return View(dsCTHDs);
+        }
+
     }
 }

@@ -1,0 +1,75 @@
+﻿@using System.Globalization;
+@model List<TestTemplate.Models.CTHD>
+
+
+@{
+    ViewBag.Title = "CTHD";
+    Layout = "~/Views/Shared/Layout_HoaDon.cshtml";
+}
+
+<h2 style="margin-left: 500px">Chi tiết hóa đơn</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã CTHD</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã HĐ</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ngày đặt</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Loại sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Số sân</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Số giờ đặt (tiếng)</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Giá tiền (VNĐ)</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaCTHD)
+            </td>
+            <td style="padding: 0px 30px">
+                @Html.DisplayFor(modelItem => item.MaHoaDon)
+            </td>
+            <td style="padding: 0px 30px">
+                @{
+                    DateTime dt = DateTime.ParseExact(item.NgayDat.ToString(), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+                    string s = dt.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    @Html.DisplayFor(modelItem => s)
+                }
+            </td>
+            <td style="padding: 0px 30px">
+                @Html.DisplayFor(modelItem => item.LoaiSan)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.SoSan)
+            </td>
+            <td style="padding: 0px 70px">
+                @Html.DisplayFor(modelItem => item.SoGioDat)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+        </tr>
+    }
+
+</table>
+

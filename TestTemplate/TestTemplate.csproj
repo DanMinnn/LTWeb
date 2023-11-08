@@ -5637,6 +5637,9 @@
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\LichSuDatSan\Index.cshtml" />
     <Content Include="Views\Home\NotPermission.cshtml" />
+    <Content Include="Views\LichSuDatSan\XemHoaDon.cshtml" />
+    <Content Include="Views\LichSuDatSan\CTHD.cshtml" />
+    <Content Include="Views\Shared\Layout_HoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

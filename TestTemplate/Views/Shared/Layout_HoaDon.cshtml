@@ -1,0 +1,178 @@
+﻿
+
+@{
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="~/Content/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Content/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+        @{
+            Html.RenderPartial("_HeaderNavBar");
+        }
+
+        @RenderSection("Header", false)
+        <!-- Search Start -->
+        
+        <!-- Search End -->
+        @RenderBody()
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Liên hệ</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>451 - Lê Văn Việt - Tăng Nhơn Phú A - Thủ Đức - Hồ Chí Minh</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>034 759 2129</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>5tl@ltw.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="https://localhost:44326/">Trang Chủ</a>
+                        <a class="btn btn-link text-white-50" href="https://localhost:44326/Football">Bóng Đá</a>
+                        <a class="btn btn-link text-white-50" href="https://localhost:44326/Tennis">Tennis</a>
+                        <a class="btn btn-link text-white-50" href="https://localhost:44326/Basketball">Bóng Rổ</a>
+                        <a class="btn btn-link text-white-50" href="https://localhost:44326/Badminton">Cầu Lông</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Một Số Sân Nổi Bật</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/s11ibiq22m2ptxJbA" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/sanbongda_LT.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/gch3AYMGiKtkNX8v5" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/san_namly.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/4NnhqB933sAVUYrW6" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/san-cau-long_hvct.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/XpH43vpBMP9Pxy358" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/sBongRo_NguyenDu.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/wavw9NKiqzVSP5aC6" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/sTennis_CDCN.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://maps.app.goo.gl/niY72YdrYoaPCFXPA" target="_blank">
+                                    <img class="img-fluid rounded bg-light p-1" src="~/Content/img/sTennis_DHNH.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: left">
+                        <div class="verified" style="padding: 0">
+                            <p>
+                                <a target="_blank" href="http://online.gov.vn/">
+                                    <img style="width: 150px;"
+                                         alt="" title=""
+                                         src="https://wesport.zone/wp-content/themes/wesport/assets/images/verified.jpgx" />
+                                </a>
+                            </p>
+                            <p style="margin-top: 10px">
+                                Giấy chứng nhận đăng ký doanh nghiệp số 0313983848 do Sở Kế hoạch đầu tư TP. Hồ Chí Minh cấp ngày 20/11/2023
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Sport</a>, All Right Reserved.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://www.facebook.com/BoMonCNTTUTCHCMC" target="_blank">IT-K62</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/lib/wow/wow.min.js"></script>
+    <script src="~/Content/lib/easing/easing.min.js"></script>
+    <script src="~/Content/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Areas/Admin/css_js_login/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+

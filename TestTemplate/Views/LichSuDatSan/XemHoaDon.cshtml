@@ -1,0 +1,61 @@
+﻿@model List<TestTemplate.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Xem hóa đơn";
+    Layout = "~/Views/Shared/Layout_HoaDon.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã hóa đơn</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã lịch đặt</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã khách hàng</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Mã nhân viên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ngày tạo</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Trạng thái</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaHoaDon)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaLichDat)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td style="padding: 0px 40px">
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
