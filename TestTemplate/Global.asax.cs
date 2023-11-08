@@ -19,7 +19,16 @@ namespace TestTemplate
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Application["LuotTruyCap"] = 0;
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+            
+        }
+
+        protected void Session_Star()
+        {
+            Application.Lock(); // Đồng bộ hóa
+            Application["LuotTruyCap"] = (int)Application["LuotTruyCap"] + 1;
+            Application.UnLock();
         }
 
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
@@ -33,5 +42,17 @@ namespace TestTemplate
                 Context.User = userPrincipal;
             }
         }
+
+        
+
+        //protected void Application_Start()
+        //{
+        //    AreaRegistration.RegisterAllAreas();
+        //    FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        //    RouteConfig.RegisterRoutes(RouteTable.Routes);
+        //    BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+        //    Application["LuotTruyCap"] = 0;
+        //}
     }
 }
