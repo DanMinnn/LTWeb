@@ -53,6 +53,7 @@ Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
         @Html.DisplayFor(modelItem => item.TrangThai)
     </td>
     <td>
+        @Html.ActionLink("Cập nhật trạng thái", "CapNhatHD", new { id = item.MaHoaDon }) ||
         @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon })
     </td>
 </tr>

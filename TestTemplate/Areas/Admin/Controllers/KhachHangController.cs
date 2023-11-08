@@ -76,6 +76,36 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View(dsHoaDon.OrderBy(n => n.MaHoaDon).ToPagedList(PageNumber, PageSize));
         }
 
+        public ActionResult CapNhatHD(string id)
+        {
+            var model = db.HoaDons.Find(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CapNhatHD(HoaDon hoaDon)
+        {
+            if(string.IsNullOrEmpty(hoaDon.TrangThai) == true)
+            {
+                ModelState.AddModelError("", "Nhập trạng thái");
+                return View(hoaDon);
+            }
+
+            var updateStatus = db.HoaDons.Find(hoaDon.MaHoaDon);
+            try
+            {
+                updateStatus.TrangThai = hoaDon.TrangThai;
+
+                db.SaveChanges();
+                return RedirectToAction("HoaDon");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(hoaDon);
+            }
+        }
+
         public ActionResult CTHD(string id, int? page)
         {
             List<CTHD> dsCTHDs = db.CTHDs.ToList();

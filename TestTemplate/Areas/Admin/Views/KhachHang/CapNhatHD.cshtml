@@ -1,0 +1,34 @@
+﻿@model TestTemplate.Models.HoaDon
+
+@{
+    ViewBag.Title = "Cập nhật hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Cập nhật trạng thái</h2>
+
+@using (Html.BeginForm("CapNhatHD", "KhachHang", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaHoaDon)
+    
+    <div class="form-group">
+        <label class="control-label col-md-10 " style="margin-top: 10px">Trạng thái thanh toán</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cập nhật" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+

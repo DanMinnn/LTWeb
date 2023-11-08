@@ -5596,6 +5596,7 @@
     <Content Include="Areas\Admin\Views\San\CapNhat.cshtml" />
     <Content Include="Areas\Admin\Views\TimKiem_Admin\TimKiem.cshtml" />
     <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\CapNhatHD.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
