@@ -260,6 +260,8 @@ namespace TestTemplate.Controllers
                         .FirstOrDefault()
                         .ToString();
 
+            string TrangThai = "Chưa thanh toán";
+
             var lastInvoice = db.HoaDons.OrderByDescending(hd => hd.MaHoaDon).FirstOrDefault();
             if (lastInvoice != null)
             {
@@ -277,7 +279,8 @@ namespace TestTemplate.Controllers
                 MaLichDat = maLDMoiNhat,
                 MaKhachHang = maKHDatSan,
                 MaNV = maNV,
-                NgayTao = DateTime.Now
+                NgayTao = DateTime.Now,
+                TrangThai = TrangThai
             };
             db.HoaDons.Add(hoaDon);
             db.SaveChanges();
@@ -316,7 +319,7 @@ namespace TestTemplate.Controllers
 
             ViewBag.LoaiSan = loai_so_San.DanhMucSan.LoaiSan;
             string soSan = loai_so_San.San.SoSan.ToString();
-            ViewBag.GiaSan = loai_so_San.San.GiaSan;
+            double giaTien = (double)loai_so_San.San.GiaSan;
 
             //string soSan = ViewBag.SoSan.ToString();
             //string giaSan = ViewBag.GiaSan.ToString();
@@ -345,7 +348,8 @@ namespace TestTemplate.Controllers
             }
 
             cTHD.SoGioDat = soGioDat;
-            cTHD.GiaTien = ViewBag.GiaSan;
+
+            cTHD.GiaTien = giaTien;
 
             db.CTHDs.Add(cTHD);
 

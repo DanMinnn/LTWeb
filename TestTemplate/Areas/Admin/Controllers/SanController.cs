@@ -39,7 +39,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CapNhat(San model_Edit)
         {
-            if (string.IsNullOrEmpty(model_Edit.GiaSan) == true || string.IsNullOrEmpty(model_Edit.DanhMucSan.LoaiSan) == true)
+            if (model_Edit.GiaSan != null || string.IsNullOrEmpty(model_Edit.DanhMucSan.LoaiSan) == true)
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);

@@ -19,16 +19,13 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View();
         }
 
-        public decimal ThongKeDoanhThu()
+        public double ThongKeDoanhThu()
         {
             var lstCTHD = db.CTHDs.ToList();
-            decimal TongDoanhThu = 0;
+            double TongDoanhThu = 0;
             foreach(var item in lstCTHD)
             {
-                if(decimal.TryParse(item.GiaTien, out decimal price))
-                {
-                    TongDoanhThu += price;
-                }
+                TongDoanhThu = (double)(TongDoanhThu + item.GiaTien);
             }
             return TongDoanhThu;
         }
