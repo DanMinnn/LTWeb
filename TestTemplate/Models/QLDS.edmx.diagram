@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="QLDSModel.CoSo" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.CTHD" Width="1.5" PointX="4.625" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.DanhMucSan" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLDSModel.HoaDon" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDSModel.HoaDon" Width="1.5" PointX="3.375" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.LichDat" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.LoaiCoSo" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLDSModel.NhanVien" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />

@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\CoSoController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanCongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanController.cs" />
     <Compile Include="Controllers\BadmintonController.cs" />
     <Compile Include="Controllers\BasketballController.cs" />
     <Compile Include="Controllers\CoSoController.cs" />
@@ -5109,15 +5110,12 @@
     <Content Include="Areas\ContentAdmin\plugins\xml\plugin.js" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\img\about.jpg" />
     <Content Include="Content\img\avt_Loi.jpg" />
     <Content Include="Content\img\avt_Minh.jpg" />
     <Content Include="Content\img\badminton-home.jpg" />
     <Content Include="Content\img\basketball-home.jpg" />
     <Content Include="Content\img\call-to-action.jpg" />
-    <Content Include="Content\img\carousel-1.jpg" />
     <Content Include="Content\img\carousel-2.jpg" />
-    <Content Include="Content\img\header.jpg" />
     <Content Include="Content\img\icon-apartment.png" />
     <Content Include="Content\img\icon-badminton.png" />
     <Content Include="Content\img\icon-basketball.png" />
@@ -5132,12 +5130,7 @@
     <Content Include="Content\img\icon-search.png" />
     <Content Include="Content\img\icon-tennis.png" />
     <Content Include="Content\img\icon-villa.png" />
-    <Content Include="Content\img\property-1.jpg" />
-    <Content Include="Content\img\property-2.jpg" />
-    <Content Include="Content\img\property-3.jpg" />
-    <Content Include="Content\img\property-4.jpg" />
-    <Content Include="Content\img\property-5.jpg" />
-    <Content Include="Content\img\property-6.jpg" />
+    <Content Include="Content\img\logobct.png" />
     <Content Include="Content\img\san-bong-ro-puzzle.jpg" />
     <Content Include="Content\img\sBongRo_NguyenDu.jpg" />
     <Content Include="Content\img\san-cau-long_hvct.jpg" />
@@ -5576,6 +5569,9 @@
     <Content Include="Areas\Admin\Views\PhanCong\DanhSachPhanCong.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\PhanCong\CapNhatPC.cshtml" />
+    <Content Include="Areas\Admin\Views\San\DanhSachSan.cshtml" />
+    <Content Include="Areas\Admin\Views\San\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\San\Xoa.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
