@@ -9,8 +9,8 @@
 
 <h2 style="margin-left: 500px">Chi tiết hóa đơn</h2>
 
-<table class="table">
-    <tr>
+<table class="table table-bordered" style="width: 96%; margin-left: 30px">
+    <tr style="text-align: center   ">
         <th>
             <label class="control-label col-md-10 ">Mã CTHD</label>
         </th>
@@ -32,12 +32,11 @@
         <th>
             <label class="control-label col-md-10 ">Giá tiền (VNĐ)</label>
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr style="text-align:center">
             <td style="padding: 0px 40px">
                 @Html.DisplayFor(modelItem => item.MaCTHD)
             </td>

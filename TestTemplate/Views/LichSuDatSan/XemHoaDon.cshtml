@@ -6,8 +6,8 @@
 }
 
 
-<table class="table">
-    <tr>
+<table class="table table-bordered" style="width: 96%; margin-left: 30px">
+    <tr style="text-align: center">
         <th>
             <label class="control-label col-md-10 ">Mã hóa đơn</label>
         </th>
@@ -31,7 +31,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        @*<tr>
             <td style="padding: 0px 40px">
                 @Html.DisplayFor(modelItem => item.MaHoaDon)
             </td>
@@ -51,7 +51,31 @@
                 @Html.DisplayFor(modelItem => item.TrangThai)
             </td>
             <td>
-                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon })
+                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon }, new { @class = "btn btn-info" })
+            </td>
+        </tr>*@
+
+        <tr style="text-align: center">
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.MaHoaDon)
+            </td>
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.MaLichDat)
+            </td>
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.MaKhachHang)
+            </td>
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td style=" padding-top: 16px">
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon }, new { @class = "btn btn-info" })
             </td>
         </tr>
     }
