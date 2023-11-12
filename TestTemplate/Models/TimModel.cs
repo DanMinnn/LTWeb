@@ -11,6 +11,7 @@ namespace TestTemplate.Models
         public List<CoSo> CoSo { get; set; }
         public List<NhanVien> NhanVien { get; set; }
         public List<user_KhachHang> KhachHang { get; set; }
+        public List<PhanCong> phanCongs { get; set; }
         public string sTuKhoa { get; set; }
     }
 }

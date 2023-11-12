@@ -17,12 +17,13 @@ namespace TestTemplate.Areas.Admin.Controllers
             var nhanVien = db.NhanViens.Where(nv => nv.HoTen.Contains(sTuKhoa) 
             || nv.MaNV.Contains(sTuKhoa)).ToList();
             var khachHang = db.user_KhachHang.Where(kh => kh.HoTen.Contains(sTuKhoa)).ToList();
-
+            var phanCongs = db.PhanCongs.Where(pc => pc.NhanVien.HoTen.Contains(sTuKhoa)).ToList();
 
             return View("TimKiem", new TimModel { 
                 CoSo = coSo,
                 NhanVien = nhanVien,
                 KhachHang = khachHang,
+                phanCongs = phanCongs,
                 sTuKhoa = sTuKhoa
             });
         }

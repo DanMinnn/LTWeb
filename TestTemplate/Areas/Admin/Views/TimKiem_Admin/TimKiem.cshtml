@@ -4,6 +4,8 @@
 @{
     ViewBag.Title = "Tìm kiếm";
     Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
+
 }
 
 @*<br />
@@ -151,6 +153,56 @@
                 @Html.ActionLink("Xem hóa đơn", "HoaDon", "KhachHang", new { id = item.MaKH }, null) |
                 @Html.ActionLink("Cập nhật", "CapNhat", "KhachHang", new { id = item.MaKH }, null) |
                 @Html.ActionLink("Xóa", "Xoa", "KhachHang", new { id = item.MaKH }, null)
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+<h3>Phân công: </h3>
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-md-10 ">Mã nhân viên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Họ tên</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Tên cơ sở</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Ghi chú</label>
+        </th>
+        <th>
+            <label class="control-label col-md-10 ">Cập nhật</label>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.phanCongs)
+    {
+        <tr>
+            <td style="padding: 0px 30px">
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @foreach (var nv in db.NhanViens.Where(n => n.MaNV == item.MaNV).ToList())
+                {
+                    @nv.HoTen
+                }
+            </td>
+            <td>
+                @foreach (var cs in db.CoSoes.Where(n => n.MaCS == item.MaCS).ToList())
+                {
+                    @cs.TenCS
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "CapNhatPC", new { id = item.MaPC }) |
+                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaPC })
             </td>
         </tr>
     }
