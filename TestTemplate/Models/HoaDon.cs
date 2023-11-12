@@ -30,7 +30,7 @@ namespace TestTemplate.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
         public virtual user_KhachHang user_KhachHang { get; set; }
-        public virtual LichDat LichDat { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+        public virtual LichDat LichDat { get; set; }
     }
 }
