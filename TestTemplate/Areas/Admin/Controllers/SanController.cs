@@ -62,7 +62,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CapNhat(San model_Edit)
         {
-            if (model_Edit.GiaSan != null || (model_Edit.SoSan == null) || (model_Edit.SoSan <= 0))
+            if (model_Edit.GiaSan == null || (model_Edit.SoSan == null) || (model_Edit.SoSan <= 0))
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);

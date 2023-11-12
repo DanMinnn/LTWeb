@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "DanhSachSan";
     Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+    TestTemplate.Models.QLDSEntities db = new TestTemplate.Models.QLDSEntities();
 }
 
 <h2>Danh sách sân </h2>
@@ -23,26 +24,35 @@
         <th>
             <label class="control-label col-md-10 ">Danh mục sân</label>
         </th>
+        <th>
+            <label class="control-label col-md-10 " style="padding-left: 65px;">Cơ sở</label>
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td style="padding: 0px 45px">
-                @Html.DisplayFor(modelItem => item.SoSan)
-            </td>
-            <td style="padding: 0px 28px">
-                @Html.DisplayFor(modelItem => item.GiaSan)
-            </td>
-            <td style="padding: 0px 40px">
-                @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
-            </td>
-            <td>
-                @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaSan }) |
-                @Html.ActionLink("Xóa", "Xoa", new { id = item.MaSan })
-            </td>
-        </tr>
+<tr>
+    <td style="padding: 0px 45px">
+        @Html.DisplayFor(modelItem => item.SoSan)
+    </td>
+    <td style="padding: 0px 28px">
+        @Html.DisplayFor(modelItem => item.GiaSan)
+    </td>
+    <td style="padding: 0px 40px">
+        @Html.DisplayFor(modelItem => item.DanhMucSan.LoaiSan)
+    </td>
+    <td style="padding: 0px 40px">
+        @foreach (var cs in db.DanhMucSans.Where(n => n.MaDanhMuc == item.MaDanhMuc).ToList())
+        {
+            @cs.CoSo.TenCS;
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Cập nhật", "CapNhat", new { id = item.MaSan }) |
+        @Html.ActionLink("Xóa", "Xoa", new { id = item.MaSan })
+    </td>
+</tr>
     }
 
 </table>
