@@ -7,7 +7,7 @@
 
 <h2>Thêm</h2>
 
-@using (Html.BeginForm("ThemMoi", "San", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ThemMoi", "San", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -41,13 +41,14 @@
         <div class="form-group">
             <label class="control-label col-md-10 " style="margin-top: 10px">Danh mục</label>
             <div class="col-md-10">
-                <select name="DanhMuc" class="form-control">
+                <select name="MaDanhMuc" class="form-control">
                     @foreach (var dm in db.DanhMucSans.ToList())
                     {
-                        <option value="@dm.MaDanhMuc">@dm.LoaiSan</option>
+                        <option value="@dm.MaDanhMuc">@dm.MaDanhMuc</option>
+
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.MaDanhMuc, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.DanhMucSan.LoaiSan, "", new { @class = "text-danger" })
             </div>
         </div>
 

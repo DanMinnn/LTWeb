@@ -29,6 +29,29 @@ namespace TestTemplate.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ThemMoi(San san)
+        {
+            if((san.SoSan == null) || (san.SoSan <= 0) || san.GiaSan == null || string.IsNullOrEmpty(san.MaSan))
+            {
+                ModelState.AddModelError("", "Thông tin không đúng");
+                return View(san);
+            }
+
+            try
+            {
+                db.Sans.Add(san);
+                db.SaveChanges();
+                return RedirectToAction("DanhSachSan");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(san);
+            }
+
+        }
+
         [Authorize(Roles = "Sua")]
         public ActionResult CapNhat(string id)
         {
@@ -39,7 +62,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CapNhat(San model_Edit)
         {
-            if (model_Edit.GiaSan != null || string.IsNullOrEmpty(model_Edit.DanhMucSan.LoaiSan) == true)
+            if (model_Edit.GiaSan != null || (model_Edit.SoSan == null) || (model_Edit.SoSan <= 0))
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(model_Edit);
@@ -48,9 +71,9 @@ namespace TestTemplate.Areas.Admin.Controllers
             var updateSan = db.Sans.Find(model_Edit.MaSan);
             try
             {
-                //updateKhachHang.HoTen = model_Edit.SoSan;
+                updateSan.SoSan = model_Edit.SoSan;
                 updateSan.GiaSan = model_Edit.GiaSan;
-                updateSan.DanhMucSan.LoaiSan = model_Edit.DanhMucSan.LoaiSan;
+                updateSan.MaDanhMuc = model_Edit.MaDanhMuc;
 
                 db.SaveChanges();
                 return RedirectToAction("DanhSachSan");
