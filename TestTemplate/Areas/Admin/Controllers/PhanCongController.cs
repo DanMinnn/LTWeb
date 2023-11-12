@@ -54,24 +54,25 @@ namespace TestTemplate.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = "Sua")]
-        public ActionResult CapNhatPC(string maNV, string maCS)
+        public ActionResult CapNhatPC(int id)
         {
-            var pc = db.PhanCongs.Find(maNV, maCS);
+            var pc = db.PhanCongs.Find(id);
             return View(pc);
         }
         [HttpPost]
         public ActionResult CapNhatPC(PhanCong pc)
         {
-            if (string.IsNullOrEmpty(pc.MaNV) == true)
+            if (string.IsNullOrEmpty(pc.MaNV) == true || string.IsNullOrEmpty(pc.MaCS) == true)
             {
                 ModelState.AddModelError("", "Thiếu thông tin");
                 return View(pc);
             }
 
-            var updatePC = db.PhanCongs.Find(pc.MaNV, pc.MaCS);
+            var updatePC = db.PhanCongs.Find(pc.MaPC);
             try
             {
                 updatePC.MaNV = pc.MaNV;
+                updatePC.MaCS = pc.MaCS;
                 updatePC.GhiChu = pc.GhiChu;
 
                 db.SaveChanges();
@@ -85,7 +86,7 @@ namespace TestTemplate.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = "Xoa")]
-        public ActionResult Xoa(string id)
+        public ActionResult Xoa(int id)
         {
             var model = db.PhanCongs.Find(id);
             db.PhanCongs.Remove(model);
