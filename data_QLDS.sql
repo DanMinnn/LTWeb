@@ -1,49 +1,51 @@
-CREATE DATABASE QLDS
+
+
+CREATE DATABASE QuanLyDatSan
 GO
-USE QLDS
+USE QuanLyDatSan
 GO
 
 
 CREATE TABLE [LoaiCoSo] (
-  [MaLoaiCS] char(10) PRIMARY KEY,
+  [MaLoaiCS] varchar(10) PRIMARY KEY,
   [TenLoaiCS] nvarchar(20)
 )
 GO
 
 CREATE TABLE [CoSo] (
-  [MaCS] char(10) PRIMARY KEY,
+  [MaCS] varchar(10) PRIMARY KEY,
   [TenCS] nvarchar(100),
   [HinhAnh] varchar(50),
   [DiaChi] nvarchar(100),
   [LinkMap] varchar(500),
   [MucGia] nvarchar(50),
-  [MaLoaiCS] char(10),
+  [MaLoaiCS] varchar(10),
   
   FOREIGN KEY (MaLoaiCS) REFERENCES LoaiCoSo(MaLoaiCS)
 )
 GO
 
 CREATE TABLE [DanhMucSan] (
-  [MaDanhMuc] char(20) PRIMARY KEY,
+  [MaDanhMuc] varchar(20) PRIMARY KEY,
   [LoaiSan] nvarchar(30),
-  [MaCS] char(10),
+  [MaCS] varchar(10),
   
   FOREIGN KEY (MaCS) REFERENCES CoSo(MaCS)
 )
 GO
 
 CREATE TABLE [San] (
-  [MaSan] char(10) PRIMARY KEY,
+  [MaSan] varchar(10) PRIMARY KEY,
   [SoSan] int,
-  [GiaSan] nvarchar(50),
-  [MaDanhMuc] char(20),
+  [GiaSan] float,
+  [MaDanhMuc] varchar(20),
 
   FOREIGN KEY (MaDanhMuc) REFERENCES DanhMucSan(MaDanhMuc)
 )
 GO
 
 CREATE TABLE [user_KhachHang] (
-  [MaKH] char(10) PRIMARY KEY,
+  [MaKH] varchar(10) PRIMARY KEY,
   [username] varchar(12) NOT NULL UNIQUE,
   [password] varchar(12) NOT NULL,
   [HoTen] nvarchar(50),
@@ -53,9 +55,9 @@ CREATE TABLE [user_KhachHang] (
 GO
 
 CREATE TABLE [LichDat] (
-  [MaLichDat] char(10) PRIMARY KEY,
-  [MaKhachHang] char(10),
-  [MaSan] char(10),
+  [MaLichDat] varchar(10) PRIMARY KEY,
+  [MaKhachHang] varchar(10),
+  [MaSan] varchar(10),
   [ThoiGianBatDau] datetime,
   [ThoiGianKetThuc] datetime,
   [TrangThai] nvarchar(50),
@@ -67,7 +69,7 @@ CREATE TABLE [LichDat] (
 GO
 
 CREATE TABLE [QuanTriVien] (
-  [MaQTV] char(20) PRIMARY KEY,
+  [MaQTV] varchar(20) PRIMARY KEY,
   [LoaiQTV] nvarchar(20),
   [TenDangNhap] varchar(50) NOT NULL UNIQUE,
   [MatKhau] varchar(50) NOT NULL,
@@ -76,7 +78,7 @@ CREATE TABLE [QuanTriVien] (
 GO
 
 CREATE TABLE [NhanVien] (
-  [MaNV] char(10) PRIMARY KEY,
+  [MaNV] varchar(10) PRIMARY KEY,
   [HoTen] nvarchar(50),
   [NgaySinh] Date,
   [GioiTinh] nvarchar(10),
@@ -84,18 +86,19 @@ CREATE TABLE [NhanVien] (
   [Email] varchar(50),
   [CCCD] varchar(15),
 
-   [MaQTV] char(20),
+   [MaQTV] varchar(20),
 
   FOREIGN KEY (MaQTV) REFERENCES QuanTriVien(MaQTV)
 )
 GO
 
 CREATE TABLE [HoaDon] (
-  [MaHoaDon] char(10) PRIMARY KEY,
-  [MaLichDat] char(10),
-  [MaKhachHang] char(10),
-  [MaNV] char(10),
-  [NgayTao] date,
+  [MaHoaDon] varchar(10) PRIMARY KEY,
+  [MaLichDat] varchar(10),
+  [MaKhachHang] varchar(10),
+  [MaNV] varchar(10),
+  [NgayTao] datetime,
+  [TrangThai] nvarchar(50)
 
   FOREIGN KEY (MaLichDat) REFERENCES LichDat(MaLichDat),
   FOREIGN KEY (MaKhachHang) REFERENCES user_KhachHang(MaKH),
@@ -105,39 +108,38 @@ CREATE TABLE [HoaDon] (
 GO
 
 CREATE TABLE [CTHD] (
-  [MaCTHD] char(10) PRIMARY KEY,
-  [MaHoaDon] char(10),
+  [MaCTHD] varchar(10) PRIMARY KEY,
+  [MaHoaDon] varchar(10),
   [NgayDat] date,
   [LoaiSan] nvarchar(10),
   [SoSan] int,
   [SoGioDat] float,
-  [SoLuongDat] int,
-  [TongTien] decimal(18, 2),
+  [GiaTien] float,
 
   FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon)
 )
 GO
 
-CREATE TABLE [PhanCong] (
-  [MaNV] char(10),
-  [MaCS] char(10),
-  GhiChu nvarchar(100),
 
-  PRIMARY KEY (MaNV, MaCS)
+CREATE TABLE [PhanCong] (
+  [MaPC] int identity(1,1) PRIMARY KEY,
+  [MaNV] varchar(10),
+  [MaCS] varchar(10),
+  GhiChu nvarchar(50),
 )
 GO
 
 
 
 CREATE TABLE [Quyen] (
-  [MaQuyen] char(50) PRIMARY KEY,
+  [MaQuyen] varchar(50) PRIMARY KEY,
   [TenQuyen] nvarchar(50)
 )
 GO
 
 CREATE TABLE [PhanQuyen] (
-  [MaQTV] char(20),
-  [MaQuyen] char(50),
+  [MaQTV] varchar(20),
+  [MaQuyen] varchar(50),
   [GhiChu] nvarchar(50),
 
   PRIMARY KEY ([MaQTV], [MaQuyen])
@@ -145,8 +147,8 @@ CREATE TABLE [PhanQuyen] (
 GO
 
 CREATE TABLE [TaiKhoan] (
-  [MaTK] char(10) PRIMARY KEY,
-  [MaKH] char(10),
+  [MaTK] varchar(10) PRIMARY KEY,
+  [MaKH] varchar(10),
   [username] varchar(12),
   [password] varchar(12),
 
@@ -323,172 +325,172 @@ INSERT INTO DanhMucSan(MaDanhMuc, LoaiSan, MaCS)
 --- INSERT SÂN CƠ SỞ TENNIS
  --- INSERT SÂN P/S
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('P/S_1',1,N'180.000đ','QV_Don_PS'),
-		('P/S_2',2,N'180.000đ','QV_Don_PS'),
-		('P/S_3',3,N'250.000đ','QV_Doi_PS'),
-		('P/S_4',4,N'250.000đ','QV_Doi_PS')
+values ('P/S_1',1,180000,'QV_Don_PS'),
+		('P/S_2',2,180000,'QV_Don_PS'),
+		('P/S_3',3,250000,'QV_Doi_PS'),
+		('P/S_4',4,250000,'QV_Doi_PS')
 
 --- INSERT SÂN NVKB
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('NVKB_1',1,N'200.000đ','QV_Don_NVKB'),
-		('NVKB_2',2,N'200.000đ','QV_Don_NVKB'),
-		('NVKB_3',3,N'300.000đ','QV_Doi_NVKB'),
-		('NVKB_4',4,N'300.000đ','QV_Doi_NVKB')
+values  ('NVKB_1',1,200000,'QV_Don_NVKB'),
+		('NVKB_2',2,200000,'QV_Don_NVKB'),
+		('NVKB_3',3,300000,'QV_Doi_NVKB'),
+		('NVKB_4',4,300000,'QV_Doi_NVKB')
 
 --- INSERT SÂN LV
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('LV_1',1,N'150.000đ','QV_Don_LV'),
-		('LV_2',2,N'150.000đ','QV_Don_LV'),
-		('LV_3',3,N'250.000đ','QV_Doi_LV'),
-		('LV_4',4,N'250.000đ','QV_Doi_LV')
+values  ('LV_1',1,150000,'QV_Don_LV'),
+		('LV_2',2,150000,'QV_Don_LV'),
+		('LV_3',3,250000,'QV_Doi_LV'),
+		('LV_4',4,250000,'QV_Doi_LV')
 
 -- insert sân ĐH Ngân Hàng TPHCM
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values	('DHNH_1',1,N'150.000đ','QV_Don_DHNH'),
-		('DHNH_2',2,N'150.000đ','QV_Don_DHNH'),
-		('DHNH_3',3,N'150.000đ','QV_Doi_DHNH'),
-		('DHNH_4',4,N'150.000đ','QV_Doi_DHNH')
+values	('DHNH_1',1,150000,'QV_Don_DHNH'),
+		('DHNH_2',2,150000,'QV_Don_DHNH'),
+		('DHNH_3',3,150000,'QV_Doi_DHNH'),
+		('DHNH_4',4,150000,'QV_Doi_DHNH')
 
 -- - insert sân LT
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values	('LT_1',1,N'150.000đ','QV_Don_LT'),
-		('LT_2',2,N'150.000đ','QV_Don_LT'),
-		('LT_3',3,N'250.000đ','QV_Doi_LT'),
-		('LT_4',4,N'250.000đ','QV_Doi_LT')
+values	('LT_1',1,150000,'QV_Don_LT'),
+		('LT_2',2,150000,'QV_Don_LT'),
+		('LT_3',3,250000,'QV_Doi_LT'),
+		('LT_4',4,250000,'QV_Doi_LT')
 
 -- - insert sân CDCN
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values	('CDCN_1',1,N'150.000đ','QV_Don_CDCN'),
-		('CDCN_2',2,N'150.000đ','QV_Don_CDCN'),
-		('CDCN_3',3,N'250.000đ','QV_Doi_CDCN'),
-		('CDCN_4',4,N'250.000đ','QV_Doi_CDCN')
+values	('CDCN_1',1,150000,'QV_Don_CDCN'),
+		('CDCN_2',2,150000,'QV_Don_CDCN'),
+		('CDCN_3',3,250000,'QV_Doi_CDCN'),
+		('CDCN_4',4,250000,'QV_Doi_CDCN')
 
 
 --- INSERT SÂN CƠ SỞ BÓNG ĐÁ 
  --- INSERT SÂN Lâm Thịnh
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('lt_f1',1,N'300.000đ','san_5_LT'),
-		('lt_f2',2,N'300.000đ','san_5_LT'),
-		('lt_f3',3,N'500.000đ','san_7_LT'),
-		('lt_f4',4,N'500.000đ','san_7_LT')
+values  ('lt_f1',1,300000,'san_5_LT'),
+		('lt_f2',2,300000,'san_5_LT'),
+		('lt_f3',3,500000,'san_7_LT'),
+		('lt_f4',4,500000,'san_7_LT')
  --- INSERT SÂN Phù Đổng
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('pd_1',1,N'200.000đ','san_5_PD'),
-		('pd_2',2,N'200.000đ','san_5_PD'),
-		('pd_3',3,N'400.000đ','san_7_PD'),
-		('pd_4',4,N'400.000đ','san_7_PD')
+values  ('pd_1',1,200000,'san_5_PD'),
+		('pd_2',2,200000,'san_5_PD'),
+		('pd_3',3,400000,'san_7_PD'),
+		('pd_4',4,400000,'san_7_PD')
 --- INSERT SÂN Nam Lý
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('nl_1',1,N'300.000đ','san_5_NL'),
-		('nl_2',2,N'300.000đ','san_5_NL'),
-		('nl_3',3,N'500.000đ','san_7_NL'),
-		('nl_4',4,N'500.000đ','san_7_NL')
+values  ('nl_1',1,300000,'san_5_NL'),
+		('nl_2',2,300000,'san_5_NL'),
+		('nl_3',3,450000,'san_7_NL'),
+		('nl_4',4,450000,'san_7_NL')
 --- INSERT SÂN Lam Sơn
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('ls_1',1,N'350.000đ','san_5_LS'),
-		('ls_2',2,N'350.000đ','san_5_LS'),
-		('ls_3',3,N'600.000đ','san_7_LS'),
-		('ls_4',4,N'600.000đ','san_7_LS')
+values  ('ls_1',1,350000,'san_5_LS'),
+		('ls_2',2,350000,'san_5_LS'),
+		('ls_3',3,500000,'san_7_LS'),
+		('ls_4',4,500000,'san_7_LS')
 --- INSERT SÂN KTX trường ĐH Giao thông vận tải
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('gtvt_1',1,N'300.000đ','san_5_GT'),
-		('gtvt_2',2,N'300.000đ','san_5_GT'),
-		('gtvt_3',3,N'300.000đ','san_5_GT'),
-		('gtvt_4',4,N'300.000đ','san_5_GT')
+values  ('gtvt_1',1,300000,'san_5_GT'),
+		('gtvt_2',2,300000,'san_5_GT'),
+		('gtvt_3',3,300000,'san_5_GT'),
+		('gtvt_4',4,300000,'san_5_GT')
 --- INSERT SÂN Trương Văn Thành
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('tvt_1',1,N'200.000đ','san_5_TVT'),
-		('tvt_2',2,N'200.000đ','san_5_TVT'),
-		('tvt_3',3,N'400.000đ','san_7_TVT'),
-		('tvt_4',4,N'400.000đ','san_7_TVT')
+values  ('tvt_1',1,200000,'san_5_TVT'),
+		('tvt_2',2,200000,'san_5_TVT'),
+		('tvt_3',3,400000,'san_7_TVT'),
+		('tvt_4',4,400000,'san_7_TVT')
 
 
 -- INSERT SAN CO SO CAU LONG
 -- INSERT HVCT
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('HVCT_1',1,N'100.000đ','CL_Doi_HVCT'),
-		('HVCT_2',2,N'100.000đ','CL_Doi_HVCT'),
-		('HVCT_3',3,N'50.000đ','CL_Don_HVCT'),
-		('HVCT_4',4,N'50.000đ','CL_Don_HVCT')
+values  ('HVCT_1',1,100000,'CL_Doi_HVCT'),
+		('HVCT_2',2,100000,'CL_Doi_HVCT'),
+		('HVCT_3',3,70000,'CL_Don_HVCT'),
+		('HVCT_4',4,70000,'CL_Don_HVCT')
 
 -- INSERT SAN REBELL
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('RB_1',1,N'60.000đ','CL_Don_Rebell'),
-		('RB_2',2,N'60.000đ','CL_Don_Rebell'),
-		('RB_3',3,N'60.000đ','CL_Don_Rebell'),
-		('RB_4',4,N'80.000đ','CL_Doi_Rebell')
+values  ('RB_1',1,60000,'CL_Don_Rebell'),
+		('RB_2',2,60000,'CL_Don_Rebell'),
+		('RB_3',3,60000,'CL_Don_Rebell'),
+		('RB_4',4,90000,'CL_Doi_Rebell')
 
 -- INSERT SAN BINH THAI
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('BT_1',1,N'50.000đ','CL_Don_BT'),
-		('BT_2',2,N'80.000đ','CL_Doi_BT'),
-		('BT_3',3,N'80.000đ','CL_Doi_BT'),
-		('BT_4',4,N'50.000đ','CL_Don_BT')
+values  ('BT_1',1,50000,'CL_Don_BT'),
+		('BT_2',2,80000,'CL_Doi_BT'),
+		('BT_3',3,80000,'CL_Doi_BT'),
+		('BT_4',4,50000,'CL_Don_BT')
 
 --INSERT SAN DONG PHUONG
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('DP_1',1,N'80.000đ','CL_Doi_DP'),
-		('DP_2',2,N'50.000đ','CL_Don_DP'),
-		('DP_3',3,N'80.000đ','CL_Doi_DP'),
-		('DP_4',4,N'80.000đ','CL_Doi_DP')
+values  ('DP_1',1,80000,'CL_Doi_DP'),
+		('DP_2',2,50000,'CL_Don_DP'),
+		('DP_3',3,80000,'CL_Doi_DP'),
+		('DP_4',4,80000,'CL_Doi_DP')
 
 --INSERT SAN TAM KHOE
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('TK_1',1,N'50.000đ','CL_Doi_TK'),
-		('TK_2',2,N'50.000đ','CL_Doi_TK'),
-		('TK_3',3,N'40.000đ','CL_Don_TK'),
-		('TK_4',4,N'50.000đ','CL_Doi_TK')
+values  ('TK_1',1,50000,'CL_Doi_TK'),
+		('TK_2',2,50000,'CL_Doi_TK'),
+		('TK_3',3,40000,'CL_Don_TK'),
+		('TK_4',4,50000,'CL_Doi_TK')
 
 --INSERT SAN HOAI PHUONG
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('HP_1',1,N'80.000đ','CL_Doi_HP'),
-		('HP_2',2,N'80.000đ','CL_Doi_HP'),
-		('HP_3',3,N'50.000đ','CL_Don_HP'),
-		('HP_4',4,N'50.000đ','CL_Don_HP')
+values  ('HP_1',1,80000,'CL_Doi_HP'),
+		('HP_2',2,80000,'CL_Doi_HP'),
+		('HP_3',3,50000,'CL_Don_HP'),
+		('HP_4',4,50000,'CL_Don_HP')
 		
 		
 -- INSERT SÂN BÓNG RỔ
 	-- insert sân tdtttd
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('tdtttd1',1,N'300.000đ','BR_3X3_TDTT'),
-		('tdtttd2',2,N'300.000đ','BR_3X3_TDTT'),
-		('tdtttd3',3,N'300.000đ','BR_3X3_TDTT'),
-		('tdtttd4',4,N'400.000đ','BR_5X5_TDTT')
+values ('tdtttd1',1,300000,'BR_3X3_TDTT'),
+		('tdtttd2',2,300000,'BR_3X3_TDTT'),
+		('tdtttd3',3,300000,'BR_3X3_TDTT'),
+		('tdtttd4',4,400000,'BR_5X5_TDTT')
 
 -- insert sân or
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('or1',1,N'270.000đ','BR_3X3_OR'),
-		('or2',2,N'270.000đ','BR_3X3_OR'),
-		('or3',3,N'350.000đ','BR_5X5_OR'),
-		('or4',4,N'350.000đ','BR_5X5_OR')
+values ('or1',1,270000,'BR_3X3_OR'),
+		('or2',2,270000,'BR_3X3_OR'),
+		('or3',3,350000,'BR_5X5_OR'),
+		('or4',4,350000,'BR_5X5_OR')
 
 -- insert cob
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values  ('cob1',1,N'250.000đ','BR_3X3_COB'),
-		('cob2',2,N'250.000đ','BR_3X3_COB'),
-		('cob3',3,N'250.000đ','BR_3X3_COB'),
-		('cob4',4,N'350.000đ','BR_5X5_COB')
+values  ('cob1',1,250000,'BR_3X3_COB'),
+		('cob2',2,250000,'BR_3X3_COB'),
+		('cob3',3,250000,'BR_3X3_COB'),
+		('cob4',4,350000,'BR_5X5_COB')
 
 -- insert sân mnt
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('mnt1',1,N'250.000đ','BR_3X3_MNT'),
-		('mnt2',2,N'250.000đ','BR_3X3_MNT'),
-		('mnt3',3,N'350.000đ','BR_5X5_MNT'),
-		('mnt4',4,N'350.000đ','BR_5X5_MNT')
+values ('mnt1',1,250000,'BR_3X3_MNT'),
+		('mnt2',2,250000,'BR_3X3_MNT'),
+		('mnt3',3,350000,'BR_5X5_MNT'),
+		('mnt4',4,350000,'BR_5X5_MNT')
 
 -- insert sân rmit
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('rmit1',1,N'400.000đ','BR_3X3_RMIT'),
-		('rmit2',2,N'600.000đ','BR_5X5_RMIT'),
-		('rmit3',3,N'400.000đ','BR_3X3_RMIT'),
-		('rmit4',4,N'600.000đ','BR_5X5_RMIT')
+values ('rmit1',1,400000,'BR_3X3_RMIT'),
+		('rmit2',2,600000,'BR_5X5_RMIT'),
+		('rmit3',3,400000,'BR_3X3_RMIT'),
+		('rmit4',4,600000,'BR_5X5_RMIT')
 
 -- insert sân cvq9
 insert into San(MaSan,SoSan,GiaSan,MaDanhMuc)
-values ('cv1',1,N'250.000đ','BR_3X3_CV'),
-		('cv2',2,N'250.000đ','BR_3X3_CV'),
-		('cv3',3,N'250.000đ','BR_3X3_CV'),
-		('cv4',4,N'250.000đ','BR_3X3_CV')
+values ('cv1',1,250000,'BR_3X3_CV'),
+		('cv2',2,250000,'BR_3X3_CV'),
+		('cv3',3,250000,'BR_3X3_CV'),
+		('cv4',4,250000,'BR_3X3_CV')
 
 ---- INSERT DỮ LIỆU NHÂN VIÊN
 insert into NhanVien(MaNV, HoTen, NgaySinh, GioiTinh, SDT, Email, CCCD)
