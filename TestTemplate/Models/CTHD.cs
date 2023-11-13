@@ -11,7 +11,8 @@ namespace TestTemplate.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CTHD
     {
         public string MaCTHD { get; set; }
@@ -20,6 +21,7 @@ namespace TestTemplate.Models
         public string LoaiSan { get; set; }
         public Nullable<int> SoSan { get; set; }
         public Nullable<double> SoGioDat { get; set; }
+        [DisplayFormat(DataFormatString = "{0:#,##0}", ApplyFormatInEditMode = true)]
         public Nullable<double> GiaTien { get; set; }
     
         public virtual HoaDon HoaDon { get; set; }

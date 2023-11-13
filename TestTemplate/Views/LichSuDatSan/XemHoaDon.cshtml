@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/Layout_HoaDon.cshtml";
 }
 
+<h2 style="margin-left: 500px">Hóa đơn</h2>
 
-<table class="table table-bordered" style="width: 96%; margin-left: 30px">
+<table class="table table-bordered" style="width: 96%; margin-left: 30px; margin-bottom: 500px">
     <tr style="text-align: center">
         <th>
             <label class="control-label col-md-10 ">Mã hóa đơn</label>
@@ -31,32 +32,8 @@
 
     @foreach (var item in Model)
     {
-        @*<tr>
-            <td style="padding: 0px 40px">
-                @Html.DisplayFor(modelItem => item.MaHoaDon)
-            </td>
-            <td style="padding: 0px 40px">
-                @Html.DisplayFor(modelItem => item.MaLichDat)
-            </td>
-            <td style="padding: 0px 40px">
-                @Html.DisplayFor(modelItem => item.MaKhachHang)
-            </td>
-            <td style="padding: 0px 40px">
-                @Html.DisplayFor(modelItem => item.MaNV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayTao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TrangThai)
-            </td>
-            <td>
-                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon }, new { @class = "btn btn-info" })
-            </td>
-        </tr>*@
-
         <tr style="text-align: center">
-            <td style=" padding-top: 16px">
+            <td style="padding-top: 16px">
                 @Html.DisplayFor(modelItem => item.MaHoaDon)
             </td>
             <td style=" padding-top: 16px">
@@ -71,11 +48,11 @@
             <td style=" padding-top: 16px">
                 @Html.DisplayFor(modelItem => item.NgayTao)
             </td>
-            <td style=" padding-top: 16px">
+            <td style=" padding-top: 16px; font-weight:bold; color:red">
                 @Html.DisplayFor(modelItem => item.TrangThai)
             </td>
             <td>
-                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { id = item.MaHoaDon }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Chi tiết hóa đơn", "CTHD", new { maHD = item.MaHoaDon }, new { @class = "btn btn-info" })
             </td>
         </tr>
     }

@@ -16,6 +16,12 @@ namespace TestTemplate.Areas.Admin
         {
             context.MapRoute(
                 "Admin_default",
+                "Admin",
+                new { controller = "ThongKe", action = "Index", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "Admin_with_params",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );

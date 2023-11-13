@@ -45,7 +45,7 @@ namespace TestTemplate.Controllers
                 }
                 Quyen = Quyen.Substring(0, Quyen.Length - 1); // Cắt dấu ","
                 PhanQuyen(admin.MaQTV, Quyen);
-                return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
+                return RedirectToAction("Index", "ThongKe", new { area = "Admin" });
             }
             else
             {

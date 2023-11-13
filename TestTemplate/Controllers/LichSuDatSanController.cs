@@ -56,9 +56,9 @@ namespace TestTemplate.Controllers
             return View(lstHD);
         }
 
-        public ActionResult CTHD()
+        public ActionResult CTHD(string maHD)
         {
-            List<CTHD> dsCTHDs = db.CTHDs.ToList();
+            List<CTHD> dsCTHDs = db.CTHDs.Where(c => c.MaHoaDon == maHD).ToList();
             return View(dsCTHDs);
         }
 
